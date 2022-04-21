@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Kodchasan-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./Font/Kodchasan-Light.ttf");
+  /* url("styles/fonts/NotoSansKR-Regular.woff") format("woff"),
+      url("styles/fonts/NotoSansKR-Regular.otf") format("truetype"); */
+}
