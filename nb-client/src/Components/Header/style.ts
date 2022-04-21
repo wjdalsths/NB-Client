@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const Title = styled.div``;
 export const Logo = styled.a`
   font-family: "Kodchasan-Light";
   font-weight: bold;
   color: #6a5acd;
-  font-size: 6rem;
+  font-size: 5rem;
   margin: 0;
 `;
 export const Line = styled.div`

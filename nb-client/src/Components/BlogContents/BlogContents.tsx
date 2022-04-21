@@ -27,14 +27,14 @@ const BlogContents = () => {
                 src={"/img/tkwls.jpg"}
                 alt=""
                 style={{
-                  height: "200px",
-                  width: "320px",
+                  height: "180px",
+                  width: "250px",
                 }}
               />
             </S.imgbox>
             <S.infobox>
               <S.title>{user.title}</S.title>
-              <S.info>{user.body}</S.info>
+              {/* <S.info>{user.body}</S.info> */}
             </S.infobox>
           </S.blogitem>
         ))}

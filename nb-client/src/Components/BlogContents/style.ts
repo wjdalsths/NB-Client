@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const items = styled.div`
-  /* width: 95%; */
+  /* width: 100%; */
+  margin: -1rem;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
 `;
 export const blogitem = styled.div`
-  width: 20rem;
+  /* width: 15.5rem; */
+  width: 250px;
   margin: 1rem;
   background: #ffffff;
   border-radius: 5px;
-  box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 16px 0px;
   /* transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s; */
   /* overflow: hidden; */
   animation: fadeIn 0.5s ease-in-out;
@@ -34,7 +36,7 @@ export const imgbox = styled.div`
   /* position: relative; */
 `;
 export const infobox = styled.div`
-  padding: 1rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
 `;
@@ -46,5 +48,6 @@ export const title = styled.h4`
   //속성은 요소가 공백 문자를 처리하는 법을 지정합니다.
   text-overflow: ellipsis;
   overflow: hidden;
+  margin: 0.6rem 0;
 `;
 export const info = styled.p``;

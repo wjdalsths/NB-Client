@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   input{
-    background: none;
+    /* background: none; */
     outline: none;
     border: none;
   }
