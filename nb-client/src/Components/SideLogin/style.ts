@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Positioner = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
 `;
 export const InputWrapper = styled.div`
   display: flex;
@@ -24,13 +25,14 @@ export const Input = styled.input`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 13vw;
 `;
 export const Button = styled.button`
   font-family: "NanumSquareRoundExtraBold";
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  width: 6.5vw;
+  width: 6.3vw;
   height: 4vh;
   margin-top: 1rem;
   border-radius: 10px;

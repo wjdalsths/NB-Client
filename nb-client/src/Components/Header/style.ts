@@ -16,6 +16,6 @@ export const Line = styled.div`
   background: #808080;
   width: 100%;
   height: 1px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
 `;

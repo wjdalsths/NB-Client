@@ -12,6 +12,9 @@ export const blogitem = styled.div`
   width: 250px;
   margin: 1rem;
   background: #ffffff;
+  box-sizing: border-box;
+  border: 2px solid black;
+
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 16px 0px;
   /* transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s; */
