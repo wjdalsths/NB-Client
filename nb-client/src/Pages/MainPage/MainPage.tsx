@@ -8,11 +8,11 @@ const MainPage = () => {
   return (
     <>
       <S.Wrapper>
+        <Header />
         <S.Container>
-          <Header />
           <BlogContents />
+          <SideBar />
         </S.Container>
-        <SideBar />
       </S.Wrapper>
     </>
   );

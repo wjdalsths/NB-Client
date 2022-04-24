@@ -12,7 +12,6 @@ const SideLogin = () => {
             //   onKeyPress={(e) => {
             //     if (e.key === "Enter") onSignin("");
             //   }}
-            //   maxLength={6}
           />
           <S.Input
             placeholder="PASSWORD"

@@ -24,7 +24,7 @@ export const Input = styled.input`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 13vw;
 `;
 export const Button = styled.button`
@@ -32,7 +32,7 @@ export const Button = styled.button`
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  width: 6.3vw;
+  width: 6.9rem;
   height: 4vh;
   margin-top: 1rem;
   border-radius: 10px;
@@ -40,4 +40,7 @@ export const Button = styled.button`
   color: #fff;
   font-size: 1.25rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+  :first-child {
+    margin-right: 0.5rem;
+  }
 `;

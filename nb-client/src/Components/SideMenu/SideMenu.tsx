@@ -1,7 +1,11 @@
 import React from "react";
-
+import * as S from "./style";
 const SideMenu = () => {
-  return <></>;
+  return (
+    <>
+      <S.Positioner></S.Positioner>
+    </>
+  );
 };
 
 export default SideMenu;
