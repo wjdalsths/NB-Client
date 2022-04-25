@@ -6,12 +6,12 @@ const SideBar = () => {
   return (
     <>
       <S.Container>
-        <S.LoginWrapper>
-          <SideLogin></SideLogin>
-        </S.LoginWrapper>
-        <S.SideMenu>
-          <SideMenu></SideMenu>
-        </S.SideMenu>
+        {/* <S.LoginWrapper> */}
+        <SideLogin></SideLogin>
+        {/* </S.LoginWrapper> */}
+        {/* <S.SideMenu> */}
+        <SideMenu></SideMenu>
+        {/* </S.SideMenu> */}
       </S.Container>
     </>
   );
