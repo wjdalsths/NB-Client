@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-export const Positioner = styled.div``;
-
-export const Content = styled.div`
+export const Positioner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 4.5rem;
   margin-left: 1rem;
 `;
+
 export const Items = styled.div`
   font-family: "NanumSquareRoundExtraBold";
   display: flex;

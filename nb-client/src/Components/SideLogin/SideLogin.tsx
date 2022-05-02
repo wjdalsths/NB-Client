@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
+import SignUpModal from "../SignUpModal/SignUpModal";
 const SideLogin = () => {
+  const [modal, setmodal] = useState(false);
+  const closeModal = () => {
+    setmodal(false);
+  };
   return (
     <>
       <S.Positioner>
@@ -25,7 +30,14 @@ const SideLogin = () => {
         </S.InputWrapper>
         <S.ButtonWrapper>
           <S.Button>로그인</S.Button>
-          <S.Button>회원가입</S.Button>
+          <S.Button onClick={() => setmodal(!modal)}>회원가입</S.Button>
+          {modal && (
+            <SignUpModal
+              open={modal}
+              close={closeModal}
+              //stuNum={stuNum}
+            />
+          )}
         </S.ButtonWrapper>
       </S.Positioner>
     </>

@@ -16,6 +16,3 @@ export const Container = styled.div`
   bottom: 1rem; */
   /* margin: 7.5rem 5rem; */
 `;
-
-// export const LoginWrapper = styled.div``;
-// export const SideMenu = styled.div``;
