@@ -31,18 +31,10 @@ export const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 1);
   background-color: white;
   width: 650px;
-  height: 650px;
+  height: 600px;
   display: flex;
   /* justify-content: center; */
-
-  @media (max-width: 1400px) {
-    width: 550px;
-    height: 550px;
-  }
-  @media (max-width: 700px) {
-    width: 450px;
-    height: 450px;
-  }
+  align-items: center;
 `;
 
 export const Header = styled.div`
@@ -55,7 +47,7 @@ export const Logo = styled.a`
   font-family: "Kodchasan-Light";
   font-weight: bold;
   color: #6a5acd;
-  font-size: 5rem;
+  font-size: 5.5rem;
   margin: 0;
 `;
 export const CloseBtn = styled.button`
@@ -67,35 +59,26 @@ export const CloseBtn = styled.button`
 
 export const Content = styled.div``;
 export const BtnWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
   margin-bottom: 45px;
-  width: 230px;
+  width: 55%;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 `;
 
 export const SignUpBtn = styled.button`
-  width: 100px;
-  height: 40px;
+  font-family: "Kodchasan-Light";
+  width: 100%;
+  height: 50px;
   border-radius: 100px;
-  border: 2px solid black;
-  background-color: transparent;
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
+  background-color: #6a5acd;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
   &:hover {
-    background-color: black;
-    color: white;
-  }
-  @media (max-width: 1400px) {
-    width: 85px;
-    height: 35px;
-    font-size: 16px;
-  }
-  @media (max-width: 700px) {
-    width: 70px;
-    height: 30px;
-    font-size: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #6a5acd;
   }
 `;

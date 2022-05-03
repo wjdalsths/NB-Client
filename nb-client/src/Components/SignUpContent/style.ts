@@ -3,12 +3,16 @@ import styled from "styled-components";
 export const Positioner = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 50%;
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 65%;
 `;
 export const input = styled.input`
   font-family: "Kodchasan-Light";
