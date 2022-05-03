@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./style";
+import SignUpContent from "../SignUpContent/SignUpContent";
 
 interface ModalProps {
   open: boolean;
@@ -14,10 +15,11 @@ const SignUpModal: React.FC<ModalProps> = ({ open, close }) => {
       <S.Positioner>
         <S.Overlay onClick={close} />
         <S.Container>
-          <S.Title>
+          <S.Header>
             <S.Logo>NB</S.Logo>
             <S.CloseBtn onClick={onClose}>X</S.CloseBtn>
-          </S.Title>
+          </S.Header>
+          <SignUpContent />
           <S.BtnWrapper>
             <S.SignUpBtn onClick={onClose}>Sign Up</S.SignUpBtn>
           </S.BtnWrapper>

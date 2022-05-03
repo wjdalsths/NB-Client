@@ -1,4 +1,3 @@
-import { strictEqual } from "assert";
 import styled from "styled-components";
 
 export const Positioner = styled.div`
@@ -26,13 +25,15 @@ export const Overlay = styled.div`
 
 export const Container = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 30px;
   border: 1px solid rgba(0, 0, 0, 1);
   background-color: white;
   width: 650px;
   height: 650px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 
   @media (max-width: 1400px) {
     width: 550px;
@@ -44,7 +45,12 @@ export const Container = styled.div`
   }
 `;
 
-export const Title = styled.div``;
+export const Header = styled.div`
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+`;
 export const Logo = styled.a`
   font-family: "Kodchasan-Light";
   font-weight: bold;
@@ -55,10 +61,11 @@ export const Logo = styled.a`
 export const CloseBtn = styled.button`
   position: absolute;
   font-size: 3rem;
-  display: flex;
-  justify-content: flex-end;
+  top: 1.5rem;
+  right: 1.5rem;
 `;
 
+export const Content = styled.div``;
 export const BtnWrapper = styled.div`
   position: absolute;
   bottom: 0;
@@ -71,7 +78,7 @@ export const BtnWrapper = styled.div`
 export const SignUpBtn = styled.button`
   width: 100px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 100px;
   border: 2px solid black;
   background-color: transparent;
   color: black;
