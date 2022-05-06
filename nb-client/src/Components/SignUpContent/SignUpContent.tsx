@@ -5,7 +5,7 @@ const SignUpContent = () => {
     <>
       <S.Positioner>
         <S.InputWrapper>
-          <S.input placeholder="name" type="text" />
+          <S.input placeholder="NAME" type="text" />
           <S.input placeholder="EMAIL" type="email" />
           <S.input placeholder="PASSWORD" type="password" />
           <S.input placeholder="PASSWORD CHECK" type="password" />

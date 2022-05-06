@@ -31,13 +31,7 @@ const SideLogin = () => {
         <S.ButtonWrapper>
           <S.Button>로그인</S.Button>
           <S.Button onClick={() => setmodal(!modal)}>회원가입</S.Button>
-          {modal && (
-            <SignUpModal
-              open={modal}
-              close={closeModal}
-              //stuNum={stuNum}
-            />
-          )}
+          {modal && <SignUpModal open={modal} close={closeModal} />}
         </S.ButtonWrapper>
       </S.Positioner>
     </>
