@@ -30,8 +30,8 @@ export const Container = styled.div`
   border-radius: 30px;
   border: 1px solid rgba(0, 0, 0, 1);
   background-color: white;
-  width: 650px;
-  height: 600px;
+  width: 550px;
+  height: 500px;
   display: flex;
   /* justify-content: center; */
   align-items: center;
@@ -57,28 +57,33 @@ export const CloseBtn = styled.button`
   right: 1.5rem;
 `;
 
-export const Content = styled.div``;
-export const BtnWrapper = styled.div`
-  margin-bottom: 45px;
-  width: 55%;
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-`;
-
-export const SignUpBtn = styled.button`
-  font-family: "Kodchasan-Light";
+export const Content = styled.div`
   width: 100%;
-  height: 50px;
-  border-radius: 100px;
-  background-color: #6a5acd;
-  color: white;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #6a5acd;
-  }
+  height: 80%;
+  margin-top: 1rem;
 `;
+// export const BtnWrapper = styled.div`
+//   margin-bottom: 45px;
+//   width: 55%;
+//   margin-top: 2rem;
+//   display: flex;
+//   justify-content: center;
+// `;
+
+// export const SignUpBtn = styled.button`
+//   font-family: "Kodchasan-Light";
+//   width: 100%;
+//   height: 50px;
+//   border-radius: 100px;
+//   background-color: #6a5acd;
+//   color: white;
+//   font-size: 1.7rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   &:hover {
+//     background-color: white;
+//     color: black;
+//     border: 4px solid #6a5acd;
+//   }
+// `;

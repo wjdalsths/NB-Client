@@ -24,14 +24,10 @@ export const Input = styled.input`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   width: 13vw;
 `;
-export const Button = styled.button`
+export const Btn = styled.button`
   font-family: "NanumSquareRoundExtraBold";
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   width: 6.9rem;
   height: 4vh;
   margin-top: 1rem;
@@ -42,5 +38,10 @@ export const Button = styled.button`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
   :first-child {
     margin-right: 0.5rem;
+  }
+  &:hover {
+    background-color: #f8f9fa;
+    color: #6a5acd;
+    border: 3px solid #6a5acd;
   }
 `;

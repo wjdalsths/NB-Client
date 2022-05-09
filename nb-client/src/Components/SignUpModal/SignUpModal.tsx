@@ -19,10 +19,9 @@ const SignUpModal: React.FC<ModalProps> = ({ open, close }) => {
             <S.Logo>NB</S.Logo>
             <S.CloseBtn onClick={onClose}>X</S.CloseBtn>
           </S.Header>
-          <SignUpContent />
-          <S.BtnWrapper>
-            <S.SignUpBtn onClick={onClose}>Sign Up</S.SignUpBtn>
-          </S.BtnWrapper>
+          <S.Content>
+            <SignUpContent />
+          </S.Content>
         </S.Container>
       </S.Positioner>
     </>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* position: fixed; */
   position: sticky;
   top: 2rem;
   background-color: #b9a0fe;
@@ -11,8 +10,4 @@ export const Container = styled.div`
   padding: 0.8rem;
   margin-left: 1rem;
   margin-right: -1rem;
-  /* display: flex; */
-  /* right: 8rem;
-  bottom: 1rem; */
-  /* margin: 7.5rem 5rem; */
 `;
