@@ -6,6 +6,9 @@ const SignUpContent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showHide, setShowHide] = useState("show");
+
   const onSignup = (e: any) => {
     e.preventDefault();
     if (password !== checkPassword) {
@@ -13,7 +16,7 @@ const SignUpContent = () => {
     } else {
       axios({
         method: "post",
-        url: "",
+        url: "/User/",
         data: {
           name: name,
           email: email,
@@ -28,6 +31,11 @@ const SignUpContent = () => {
           console.log(e);
         });
     }
+  };
+  const togglePassword = (e: any) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+    setShowHide(showPassword ? "show" : "hide");
   };
   return (
     <>
@@ -44,22 +52,28 @@ const SignUpContent = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <S.input
-            placeholder="PASSWORD"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <S.input
-            placeholder="PASSWORD CHECK"
-            type="password"
-            onChange={(e) => setCheckPassword(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                onSignup;
-              }
-            }}
-          />
+          <S.pwWrapper>
+            <input
+              placeholder="PASSWORD"
+              type={showPassword ? "text" : "password"}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <S.showPwBtn onClick={togglePassword}>{showHide}</S.showPwBtn>
+          </S.pwWrapper>
+          <S.pwWrapper>
+            <input
+              placeholder="PASSWORD CHECK"
+              type={showPassword ? "text" : "password"}
+              onChange={(e) => setCheckPassword(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                  onSignup;
+                }
+              }}
+            />
+            <S.showPwBtn onClick={togglePassword}>{showHide}</S.showPwBtn>
+          </S.pwWrapper>
         </S.InputWrapper>
         <S.BtnWrapper>
           <S.SignUpBtn onClick={onSignup}>Sign Up</S.SignUpBtn>
