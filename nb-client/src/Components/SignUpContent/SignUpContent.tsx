@@ -66,10 +66,7 @@ const SignUpContent = () => {
               type={showPassword ? "text" : "password"}
               onChange={(e) => setCheckPassword(e.target.value)}
               onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                  onSignup;
-                }
+                if (e.key === "Enter") onSignup(e);
               }}
             />
             <S.showPwBtn onClick={togglePassword}>{showHide}</S.showPwBtn>
