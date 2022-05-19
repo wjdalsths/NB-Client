@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
-// import { toast } from "react-toastify";
-
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SideLogin = () => {
   const [modal, setmodal] = useState(false);
@@ -13,20 +12,28 @@ const SideLogin = () => {
   const closeModal = () => {
     setmodal(false);
   };
-  const onLogin = async () => {
+  const onLogin = async (e: any) => {
     console.log(email, password);
-    const { data } = await axios.post("/login/", {
-      email: email,
-      password: password,
-    });
+    const emailRegex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-    console.log(data);
-    localStorage.setItem("Blog_accessToken", data.accessToken);
-    localStorage.setItem("Blog_refreshToken", data.refreshToken);
-    console.log("sucees");
+    if (!emailRegex.test(email)) {
+      alert("이메일 형식이 틀렸습니다. 다시 확인해주세요");
+    } else {
+      const { data } = await axios.post("/login/", {
+        email: email,
+        password: password,
+      });
 
-    // toast.success("로그인 성공");
+      console.log(data);
+      localStorage.setItem("Blog_accessToken", data.accessToken);
+      localStorage.setItem("Blog_refreshToken", data.refreshToken);
+      console.log("sucees");
+
+      toast.success("로그인 성공");
+    }
   };
+
   return (
     <>
       <S.Positioner>
@@ -36,7 +43,9 @@ const SideLogin = () => {
             type="text"
             onChange={(e) => setEmail(e.target.value)}
             onKeyPress={(e) => {
-              if (e.key === "Enter") onLogin();
+              if (e.key === "Enter") {
+                onLogin(e);
+              }
             }}
           />
           <S.Input
@@ -44,7 +53,9 @@ const SideLogin = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             onKeyPress={(e) => {
-              if (e.key === "Enter") onLogin();
+              if (e.key === "Enter") {
+                onLogin(e);
+              }
             }}
           />
         </S.InputWrapper>

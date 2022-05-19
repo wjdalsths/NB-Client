@@ -11,6 +11,12 @@ const SignUpContent = () => {
 
   const onSignup = (e: any) => {
     e.preventDefault();
+    const emailRegex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+    if (!emailRegex.test(email)) {
+      alert("이메일 형식이 틀렸습니다. 다시 확인해주세요");
+    }
     if (password !== checkPassword) {
       return alert("비밀번호와 비밀번호확인은 같아야 합니다.");
     } else {

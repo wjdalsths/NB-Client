@@ -6,7 +6,7 @@ const SideMenu = () => {
     <>
       <S.Positioner>
         <Link
-          to="/"
+          to="/free"
           style={{
             textDecoration: "none",
             color: "black",
@@ -21,7 +21,7 @@ const SideMenu = () => {
           </S.Items>
         </Link>
         <Link
-          to="/"
+          to="/story"
           style={{
             textDecoration: "none",
             color: "black",
@@ -36,7 +36,7 @@ const SideMenu = () => {
           </S.Items>
         </Link>
         <Link
-          to="/"
+          to="/question"
           style={{
             textDecoration: "none",
             color: "black",
@@ -51,7 +51,7 @@ const SideMenu = () => {
           </S.Items>
         </Link>
         <Link
-          to="/"
+          to="/notice"
           style={{
             textDecoration: "none",
             color: "black",
