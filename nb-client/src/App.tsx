@@ -11,6 +11,11 @@ function App() {
     <>
       <GlobalStyle />
       <BrowserRouter>
+        <ToastContainer
+          position={toast.POSITION.TOP_RIGHT}
+          transition={Slide}
+          autoClose={1500}
+        />
         <Router />
       </BrowserRouter>
     </>
