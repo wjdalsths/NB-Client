@@ -3,6 +3,7 @@ import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SideLogin = () => {
   const [modal, setmodal] = useState(false);
@@ -18,7 +19,7 @@ const SideLogin = () => {
       /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
     if (!emailRegex.test(email)) {
-      alert("이메일 형식이 틀렸습니다. 다시 확인해주세요");
+      toast.error("이메일 형식이 틀렸습니다. 다시 확인해주세요");
     } else {
       const { data } = await axios.post("/login/", {
         email: email,
