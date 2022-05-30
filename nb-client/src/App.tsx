@@ -16,8 +16,6 @@ function App() {
           position={toast.POSITION.TOP_RIGHT}
           transition={Slide}
           autoClose={1500}
-
-          // lightBackground
         />
       </BrowserRouter>
     </>

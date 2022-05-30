@@ -32,6 +32,7 @@ const SideLogin = () => {
       console.log("sucees");
 
       toast.success("로그인 성공");
+      window.location.replace("/");
     }
   };
 

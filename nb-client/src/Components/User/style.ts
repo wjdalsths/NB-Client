@@ -1,27 +1,37 @@
 import styled from "styled-components";
 
 export const Positioner = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
   width: 15rem;
-`;
-export const InputWrapper = styled.div`
+
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
 `;
-export const Input = styled.input`
-  font-family: "Kodchasan-Light";
-  font-weight: bold;
-  width: 100%;
-  height: 5vh;
-  border-radius: 50px;
-  border: 5px solid #6a5acd;
-  padding-left: 1.25rem;
-  margin-top: 1vh;
+export const ProfileWrapper = styled.div`
+  /* width: 100%; */
+  width: 15rem;
+  height: 8rem;
+  border-radius: 40px;
+  margin-top: 1rem;
+  background-color: #6a5acd;
+  display: flex;
+  display: flex;
+`;
+export const ProfileImg = styled.div`
+  img {
+    width: 6rem;
+  }
+  margin: 1rem;
+`;
+export const UserContents = styled.div`
+  margin-top: 2rem;
+  color: white;
   font-size: 1rem;
-  box-sizing: border-box;
+  margin-right: 1rem;
+  line-height: 2rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const ButtonWrapper = styled.div`
