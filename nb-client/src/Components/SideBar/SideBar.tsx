@@ -5,12 +5,12 @@ import SideMenu from "../SideMenu/SideMenu";
 import User from "../User/User";
 
 const SideBar = () => {
-  const isLogin1 = () => !!localStorage.getItem("Blog_accessToken");
+  const isLogin = () => !!localStorage.getItem("Blog_accessToken");
 
   return (
     <>
       <S.Container>
-        {isLogin1() ? <User /> : <SideLogin />}
+        {isLogin() ? <User /> : <SideLogin />}
         {/* <SideLogin /> */}
         {/* <User /> */}
         <SideMenu />
