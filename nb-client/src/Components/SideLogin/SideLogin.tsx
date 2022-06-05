@@ -4,6 +4,7 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { customAxios } from "../../Utils/Libs/customAxios";
 
 const SideLogin = () => {
   const [modal, setmodal] = useState(false);
@@ -13,15 +14,16 @@ const SideLogin = () => {
   const closeModal = () => {
     setmodal(false);
   };
-  const onLogin = async (e: any) => {
+  const onLogin = async () => {
     console.log(email, password);
     const emailRegex =
       /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
     if (!emailRegex.test(email)) {
-      toast.error("이메일 형식이 틀렸습니다. 다시 확인해주세요");
-    } else {
-      const { data } = await axios.post("/login/", {
+      return toast.error("이메일 형식이 틀렸습니다. 다시 확인해주세요");
+    }
+    try {
+      const { data } = await customAxios.post("/login/", {
         email: email,
         password: password,
       });
@@ -33,6 +35,11 @@ const SideLogin = () => {
 
       toast.success("로그인 성공");
       window.location.replace("/");
+    } catch (e: any) {
+      // console.log(error);
+      const { data } = e.response;
+      console.error("data : ", data);
+      console.error(data.message);
     }
   };
 
@@ -46,7 +53,7 @@ const SideLogin = () => {
             onChange={(e) => setEmail(e.target.value)}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                onLogin(e);
+                onLogin();
               }
             }}
           />
@@ -56,7 +63,7 @@ const SideLogin = () => {
             onChange={(e) => setPassword(e.target.value)}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                onLogin(e);
+                onLogin();
               }
             }}
           />
