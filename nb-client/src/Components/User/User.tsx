@@ -3,12 +3,17 @@ import * as S from "./style";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ChangeInfoModal from "../ChangeInfoModal/ChangeInfoModal";
 
 const User = () => {
   const [blog, setBlog] = useState([]);
   const name = "wjdaasdfffffffffffls";
   const id = "1234";
+  const [modal, setmodal] = useState(false);
 
+  const closeModal = () => {
+    setmodal(false);
+  };
   useEffect(() => {
     const url = "";
     axios
@@ -29,7 +34,6 @@ const User = () => {
     toast.info("로그아웃 되었어요");
     window.location.replace("/");
   };
-
   return (
     <>
       <S.Positioner>
@@ -44,8 +48,9 @@ const User = () => {
           </S.UserContents>
         </S.ProfileWrapper>
         <S.ButtonWrapper>
-          <S.Btn>정보수정</S.Btn>
           <S.Btn onClick={onLogout}>로그아웃</S.Btn>
+          <S.Btn onClick={() => setmodal(!modal)}>정보수정</S.Btn>
+          {modal && <ChangeInfoModal open={modal} close={closeModal} />}
         </S.ButtonWrapper>
       </S.Positioner>
     </>

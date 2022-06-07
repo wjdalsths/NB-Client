@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
-import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { customAxios } from "../../Utils/Libs/customAxios";
