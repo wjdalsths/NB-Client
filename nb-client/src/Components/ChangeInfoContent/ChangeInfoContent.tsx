@@ -20,6 +20,8 @@ const ChangeInfoContent = () => {
       toast.error("email를 입력해주세요.");
     } else if (checkPassword.match(pattern) || checkPassword === "") {
       toast.error("비밀번호 확인을 입력해주세요.");
+    } else if (email !== "자신의 이메일") {
+      toast.error("email이 다릅니다.");
     } else if (password !== checkPassword) {
       toast.error("비밀번호가 다릅니다.");
     } else {
@@ -52,17 +54,26 @@ const ChangeInfoContent = () => {
             type="text"
             onChange={(e) => setName(e.target.value)}
             maxLength={16}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") onRevise(e);
+            }}
           />
           <S.input
             placeholder="현재 이메일"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") onRevise(e);
+            }}
           />
           <S.pwWrapper>
             <input
               placeholder="변경할 비밀번호"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") onRevise(e);
+              }}
             />
             <S.showPwBtn></S.showPwBtn>
           </S.pwWrapper>

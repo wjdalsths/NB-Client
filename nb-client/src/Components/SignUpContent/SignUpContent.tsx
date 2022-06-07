@@ -52,17 +52,26 @@ const SignUpContent = () => {
             type="text"
             onChange={(e) => setName(e.target.value)}
             maxLength={16}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") onSignup(e);
+            }}
           />
           <S.input
             placeholder="EMAIL"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") onSignup(e);
+            }}
           />
           <S.pwWrapper>
             <input
               placeholder="PASSWORD"
               type={showPassword ? "text" : "password"}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") onSignup(e);
+              }}
             />
             <S.showPwBtn onClick={togglePassword}>{showHide}</S.showPwBtn>
           </S.pwWrapper>
