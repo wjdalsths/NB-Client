@@ -8,7 +8,6 @@ export const Positioner = styled.div`
 `;
 
 export const Items = styled.div`
-  font-family: "NanumSquareRoundExtraBold";
   display: flex;
   font-size: 2rem;
   color: #fff;

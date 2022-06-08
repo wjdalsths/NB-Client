@@ -17,7 +17,6 @@ export const InputWrapper = styled.div`
   width: 65%;
 `;
 export const input = styled.input`
-  font-family: "Kodchasan-Light";
   font-weight: bold;
   width: 100%;
   height: 5vh;
@@ -44,7 +43,6 @@ export const pwWrapper = styled.div`
   margin-top: 1vh;
   box-sizing: border-box;
   input {
-    font-family: "Kodchasan-Light";
     font-weight: bold;
     width: 100%;
     font-size: 14px;
@@ -60,7 +58,6 @@ export const BtnWrapper = styled.div`
 `;
 
 export const SignUpBtn = styled.button`
-  font-family: "NanumSquareRoundExtraBold";
   width: 100%;
   height: 50px;
   border-radius: 100px;

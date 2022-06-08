@@ -12,7 +12,6 @@ export const InputWrapper = styled.div`
   /* width: 100%; */
 `;
 export const Input = styled.input`
-  font-family: "Kodchasan-Light";
   font-weight: bold;
   width: 100%;
   height: 5vh;
@@ -29,7 +28,6 @@ export const ButtonWrapper = styled.div`
   /* width: 13vw; */
 `;
 export const Btn = styled.button`
-  font-family: "NanumSquareRoundExtraBold";
   width: 8rem;
   height: 4vh;
   margin-top: 1rem;

@@ -12,7 +12,6 @@ export const Positioner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Kodchasan-Light";
 `;
 
 export const Overlay = styled.div`
@@ -44,7 +43,6 @@ export const Header = styled.div`
   justify-content: center;
 `;
 export const Logo = styled.a`
-  font-family: "Kodchasan-Light";
   font-weight: bold;
   color: #6a5acd;
   font-size: 5.5rem;

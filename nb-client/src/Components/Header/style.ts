@@ -9,7 +9,6 @@ export const Title = styled.div`
   justify-content: space-between;
 `;
 export const Logo = styled.a`
-  font-family: "Kodchasan-Light";
   font-weight: bold;
   color: #6a5acd;
   font-size: 5rem;
@@ -27,7 +26,6 @@ export const WriteWrapper = styled.div`
     margin-bottom: 3px;
   }
   p {
-    font-family: "NanumSquareRoundExtraBold";
     margin: 0;
     margin-bottom: -5px;
     font-size: 12px;
