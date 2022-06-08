@@ -19,7 +19,7 @@ const FreeWrite = () => {
       // 읽기가 완료되면 아래코드 실행
       const base64 = reader.result;
       if (base64) {
-        setShowing(base64.toString);
+        setShowing(base64.toString());
         setimgBase64(base64.toString().replace("data:image/png;base64,", "")); // 파일 base64 상태 업데이트
       }
     };
@@ -30,6 +30,7 @@ const FreeWrite = () => {
     }
   };
   const deleteFileImage = () => {
+    setShowing("");
     setimgBase64("");
     setimgFile(null);
   };
@@ -78,7 +79,7 @@ const FreeWrite = () => {
           setTitle("");
           setContent("");
           deleteFileImage();
-          // window.location.replace("/free");
+          window.location.replace("/free");
         })
         .catch((error: any) => {
           console.log("error");
