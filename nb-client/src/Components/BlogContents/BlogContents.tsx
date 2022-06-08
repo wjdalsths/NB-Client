@@ -24,7 +24,7 @@ const BlogContents = () => {
           <S.blogitem key={user.id}>
             <S.imgbox>
               <img
-                src={"/img/tkwls.jpg"}
+                src={""}
                 alt=""
                 style={{
                   height: "180px",

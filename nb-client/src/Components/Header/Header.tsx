@@ -20,10 +20,19 @@ const Header = () => {
           </Link>
           <>
             {isLogin() ? (
-              <S.WriteWrapper>
-                <img src="Icons/writing.png" alt="" />
-                <p>글쓰기</p>
-              </S.WriteWrapper>
+              <Link
+                to="/freeWrite"
+                style={{
+                  textDecoration: "none",
+                  textDecorationLine: "none",
+                  color: "black",
+                }}
+              >
+                <S.WriteWrapper>
+                  <img src="Icons/writing.png" alt="" />
+                  <p>글쓰기</p>
+                </S.WriteWrapper>
+              </Link>
             ) : (
               ""
             )}
