@@ -1,12 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  
+  * { font-family: 'Kodchasan-Light', 'NanumSquareRoundExtraBold', 'Sans-serif'; }
    html body {
     /* width: 1728px;  */
     margin:0;
     padding:0;
-    /* background:#F8F9FA; */
+    /* background:#F8F9FA; */    
   }
   
   input{
