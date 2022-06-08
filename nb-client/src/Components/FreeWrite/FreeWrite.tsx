@@ -10,6 +10,7 @@ const FreeWrite = () => {
   const [content, setContent] = useState("");
 
   const [imgBase64, setimgBase64] = useState("");
+  const [showimg, setShowing] = useState("");
   const [imgFile, setimgFile] = useState(null);
 
   const handleChangeFile = (event: any) => {
@@ -18,7 +19,8 @@ const FreeWrite = () => {
       // 읽기가 완료되면 아래코드 실행
       const base64 = reader.result;
       if (base64) {
-        setimgBase64(base64.toString()); // 파일 base64 상태 업데이트
+        setShowing(base64.toString);
+        setimgBase64(base64.toString().replace("data:image/png;base64,", "")); // 파일 base64 상태 업데이트
       }
     };
     if (event.target.files[0]) {
@@ -71,11 +73,12 @@ const FreeWrite = () => {
         .then((res) => {
           console.log(res);
           console.log("성공");
+          console.log(imgBase64);
           toast.success("게시되었습니다.");
           setTitle("");
           setContent("");
           deleteFileImage();
-          window.location.replace("/free");
+          // window.location.replace("/free");
         })
         .catch((error: any) => {
           console.log("error");
@@ -85,12 +88,12 @@ const FreeWrite = () => {
 
   return (
     <>
-      <S.Wrapper>
+      <S.Positioner>
         <S.Board>
           <S.Imgboard>
             <S.Img>
               {imgFile ? (
-                <img alt="image" src={imgBase64} />
+                <img alt="image" src={showimg} />
               ) : (
                 <label htmlFor="select">클릭하여 이미지 넣기</label>
               )}
@@ -126,7 +129,7 @@ const FreeWrite = () => {
         <S.SubButton type="submit" onClick={onSubmit}>
           UpLoad
         </S.SubButton>
-      </S.Wrapper>
+      </S.Positioner>
     </>
   );
 };
