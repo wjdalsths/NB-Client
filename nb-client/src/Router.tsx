@@ -8,6 +8,7 @@ const StoryPage = lazy(() => import("./Pages/MainPage/StoryPage"));
 const QuestionPage = lazy(() => import("./Pages/QuestionPage"));
 const NoticePage = lazy(() => import("./Pages/NoticePage"));
 const FreeWritePage = lazy(() => import("./Pages/WritePages/FreeWritePage"));
+const StoryWritePage = lazy(() => import("./Pages/WritePages/StoryWritePage"));
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
       <Route path="/question" element={<QuestionPage />} />
       <Route path="/notice" element={<NoticePage />} />
       <Route path="/freeWrite" element={<FreeWritePage />} />
+      <Route path="/storyWrite" element={<StoryWritePage />} />
     </Routes>
   );
 };
