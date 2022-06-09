@@ -1,47 +1,51 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import * as S from "./style";
+import { customAxios } from "../../Utils/Libs/customAxios";
 
 const StoryContents = () => {
-  const [blog, setBlog] = useState([]);
+  const [stroy, setStory] = useState([]);
 
   //   compoentDidMount(){}
 
   useEffect(() => {
     const url = "https://jsonplaceholder.typicode.com/posts";
-    axios
+    customAxios
       .get(url)
       .then((res: any) => {
         console.log(res);
-        setBlog(res.data);
+        setStory(res.data);
       })
       .catch((error: any) => {
-        console.log("error");
+        console.log(error);
       });
   }, []);
 
   return (
     <>
-      <S.items>
-        {blog.map((user: any) => (
-          <S.blogitem key={user.id}>
-            <S.imgbox>
-              <img
-                src={""}
-                alt=""
-                style={{
-                  height: "180px",
-                  width: "250px",
-                }}
-              />
-            </S.imgbox>
-            <S.infobox>
-              <S.title>{user.title}</S.title>
-              {/* <S.info>{user.body}</S.info> */}
-            </S.infobox>
-          </S.blogitem>
-        ))}
-      </S.items>
+      <S.Positioner>
+        <S.ListType>
+          <p>ID</p>
+          <p>TITLE</p>
+          <p>USER</p>
+          <p>DAY</p>
+        </S.ListType>
+        <S.items>
+          {stroy.map((user: any) => (
+            <S.blogitem key={user.id}>
+              <S.infobox>
+                {/* {user.id} */}
+                <p>1234</p>
+                {/* <S.title>{user.title}</S.title> */}
+                <p>titletitletitletitletitlttitletitleteitleteitlt</p>
+                {/* {user.username} */}
+                <p>username</p>
+                {/* {user.date} */}
+                <p>2022/12/12</p>
+              </S.infobox>
+            </S.blogitem>
+          ))}
+        </S.items>
+      </S.Positioner>
     </>
   );
 };

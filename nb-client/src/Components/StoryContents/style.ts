@@ -1,27 +1,59 @@
 import styled from "styled-components";
 
+export const Positioner = styled.div`
+  width: 100%;
+  margin: 0 3vh;
+`;
+
+export const ListType = styled.div`
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+  p {
+    margin: 0;
+    font-size: 2.5rem;
+    margin-left: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p:first-child {
+    width: 10%;
+    background-color: lightgray;
+    border-radius: 10px 0 0 0;
+  }
+  p:nth-child(2) {
+    width: 70%;
+    background-color: lightgray;
+  }
+  p:nth-child(3) {
+    width: 10%;
+    background-color: lightgray;
+  }
+  p:nth-child(4) {
+    width: 10%;
+    background-color: lightgray;
+    border-radius: 0 10px 0 0;
+  }
+`;
+
 export const items = styled.div`
-  /* width: 100%; */
-  margin: -1rem;
+  width: 100%;
   justify-content: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 `;
 export const blogitem = styled.div`
-  /* width: 15.5rem; */
-  width: 250px;
-  margin: 1rem;
+  width: 100%;
+  height: 3rem;
   background: #ffffff;
   box-sizing: border-box;
-  border: 2px solid black;
-
-  border-radius: 5px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 16px 0px;
-  /* transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s; */
-  /* overflow: hidden; */
+  border-bottom: 2px solid;
   animation: fadeIn 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  font-size: 1.25rem;
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -32,16 +64,31 @@ export const blogitem = styled.div`
       transform: none;
     }
   }
+  p {
+    height: 3rem;
+    margin: 0.3rem 0 0 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p:first-child {
+    width: 10%;
+  }
+  p:nth-child(2) {
+    width: 70%;
+    margin-left: 2rem;
+    justify-content: flex-start;
+  }
+  p:nth-child(3) {
+    width: 10%;
+  }
+  p:nth-child(4) {
+    width: 10%;
+  }
 `;
 
-export const imgbox = styled.div`
-  /* width: 100%; */
-  /* position: relative; */
-`;
 export const infobox = styled.div`
-  padding: 0 1rem;
   display: flex;
-  flex-direction: column;
 `;
 export const title = styled.h4`
   font-size: 1rem;
@@ -53,4 +100,3 @@ export const title = styled.h4`
   overflow: hidden;
   margin: 0.6rem 0;
 `;
-export const info = styled.p``;
