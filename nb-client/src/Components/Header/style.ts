@@ -22,7 +22,7 @@ export const WriteWrapper = styled.div`
   align-items: center;
   img {
     width: 2.5rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 3px;
   }
   p {

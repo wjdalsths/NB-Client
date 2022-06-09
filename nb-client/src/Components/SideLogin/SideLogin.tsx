@@ -39,6 +39,7 @@ const SideLogin = () => {
       const { data } = e.response;
       console.error("data : ", data);
       console.error(data.message);
+      toast.error("다시 로그인 해주세요");
     }
   };
 

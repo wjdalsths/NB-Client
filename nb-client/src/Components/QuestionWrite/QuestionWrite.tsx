@@ -29,7 +29,7 @@ const QuestionWrite = () => {
     } else {
       customAxios
         .post(
-          "/SBN/CRE/",
+          "/Inq/CRE/",
           {
             title: title,
             context: content,
