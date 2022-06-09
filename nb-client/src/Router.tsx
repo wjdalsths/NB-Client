@@ -5,8 +5,8 @@ const MainPage = lazy(() => import("./Pages/MainPage/MainPage"));
 const WritePage = lazy(() => import("./Pages/WritePages/FreeWritePage"));
 const FreePage = lazy(() => import("./Pages/MainPage/FreePage"));
 const StoryPage = lazy(() => import("./Pages/MainPage/StoryPage"));
-const QuestionPage = lazy(() => import("./Pages/QuestionPage"));
-const NoticePage = lazy(() => import("./Pages/NoticePage"));
+const QuestionPage = lazy(() => import("./Pages/MainPage/QuestionPage"));
+const NoticePage = lazy(() => import("./Pages/MainPage/NoticePage"));
 const FreeWritePage = lazy(() => import("./Pages/WritePages/FreeWritePage"));
 const StoryWritePage = lazy(() => import("./Pages/WritePages/StoryWritePage"));
 
