@@ -16,17 +16,16 @@ const FreeWrite = () => {
   const handleChangeFile = (event: any) => {
     var reader = new FileReader();
     reader.onloadend = () => {
-      // 읽기가 완료되면 아래코드 실행
       const base64 = reader.result;
       if (base64) {
         setShowing(base64.toString());
-        setimgBase64(base64.toString().replace("data:image/png;base64,", "")); // 파일 base64 상태 업데이트
+        setimgBase64(base64.toString().replace("data:image/png;base64,", ""));
+        setimgBase64(base64.toString().replace("data:image/jpeg;base64,", ""));
       }
     };
     if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]); //파일을 읽어 버퍼에 저장
-      setimgFile(event.target.files[0]); //파일상태 업데이트
-      // setFileImage(URL.createObjectURL(e.target.files[0]));
+      reader.readAsDataURL(event.target.files[0]);
+      setimgFile(event.target.files[0]);
     }
   };
   const deleteFileImage = () => {
@@ -37,11 +36,11 @@ const FreeWrite = () => {
 
   const onChangeTitle = (e: any) => {
     setTitle(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
   const onChangeContent = (e: any) => {
     setContent(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const onSubmit = () => {
