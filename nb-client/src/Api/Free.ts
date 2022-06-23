@@ -1,0 +1,34 @@
+import { customAxios } from "../Utils/Libs/customAxios";
+
+export const ContentFree = async () => {
+  try {
+    const { data } = await customAxios.get("/FBN/");
+    return { data };
+  } catch (e: any) {}
+};
+
+export const WriteFree = async (
+  title: string,
+  content: string,
+  imgBase64: string
+) => {
+  try {
+    const { data } = await customAxios.post(
+      "/FBN/CRE/",
+      {
+        title: title,
+        context: content,
+        img1: imgBase64,
+        img2: "",
+        img3: "",
+        img4: "",
+        img5: "",
+        create_user: 1,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    return { data };
+  } catch (e: any) {}
+};

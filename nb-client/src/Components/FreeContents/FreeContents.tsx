@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import * as S from "./style";
+import { ContentFree } from "../../Api/Free";
 
 const FreeContents = () => {
   const [blog, setBlog] = useState([]);
@@ -8,15 +8,14 @@ const FreeContents = () => {
   //   compoentDidMount(){}
 
   useEffect(() => {
-    const url = "https://jsonplaceholder.typicode.com/posts";
-    axios
-      .get(url)
+    // const url = "https://jsonplaceholder.typicode.com/posts";
+    ContentFree()
       .then((res: any) => {
         console.log(res);
         setBlog(res.data);
       })
       .catch((error: any) => {
-        console.log("error");
+        console.log(error);
       });
   }, []);
 
@@ -27,11 +26,11 @@ const FreeContents = () => {
           <S.blogitem key={user.id}>
             <S.imgbox>
               <img
-                src={""}
-                alt=""
+                src={"data:image/png;base64," + user.img1}
+                alt="img"
                 style={{
+                  width: "100%",
                   height: "180px",
-                  width: "250px",
                 }}
               />
             </S.imgbox>

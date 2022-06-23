@@ -1,10 +1,15 @@
 import { useState } from "react";
 import * as S from "./style";
-import { customAxios } from "../../Utils/Libs/customAxios";
 import { toast } from "react-toastify";
+import { WriteFree } from "../../Api/Free";
 
-// const [info, setInfo] = useState<string>("");
-
+const WriteBoard = async (
+  title: string,
+  content: string,
+  imgBase64: string
+) => {
+  return await WriteFree(title, content, imgBase64);
+};
 const FreeWrite = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -53,23 +58,7 @@ const FreeWrite = () => {
       console.log("no content");
       alert("내용을 입력해주세요.");
     } else {
-      customAxios
-        .post(
-          "/FBN/CRE/",
-          {
-            title: title,
-            context: content,
-            img1: imgBase64,
-            img2: "",
-            img3: "",
-            img4: "",
-            img5: "",
-            create_user: 1,
-          },
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        )
+      WriteBoard(title, content, imgBase64)
         .then((res) => {
           console.log(res);
           console.log("성공");
