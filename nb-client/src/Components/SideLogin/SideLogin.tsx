@@ -42,7 +42,7 @@ const SideLogin = () => {
 
       console.log("sucees");
       toast.success("로그인 성공");
-      // window.location.replace("/");
+      window.location.replace("/");
     } catch (e: any) {
       // console.log(error);
       const { data } = e.response;

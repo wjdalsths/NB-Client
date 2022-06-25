@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import * as S from "./style";
-import { customAxios } from "../../Utils/Libs/customAxios";
+import { ContentFree } from "../../Api/Free";
 
 const BlogContents = () => {
   const [blog, setBlog] = useState([]);
-  const [imgBase64, setimgBase64] = useState("");
 
   useEffect(() => {
     // const url = "https://jsonplaceholder.typicode.com/posts";
-    customAxios
-      .get("/FBN/")
+    ContentFree()
       .then((res: any) => {
         console.log(res);
         setBlog(res.data);
@@ -37,7 +34,7 @@ const BlogContents = () => {
             </S.imgbox>
             <S.infobox>
               <S.title>{user.title}</S.title>
-              <S.info>{user.context}</S.info>
+              {/* <S.info>{user.context}</S.info> */}
             </S.infobox>
           </S.blogitem>
         ))}
