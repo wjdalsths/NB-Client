@@ -4,11 +4,14 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { customAxios } from "../../Utils/Libs/customAxios";
+import { useSetRecoilState } from "recoil";
+import { userList } from "../../atoms";
 
 const SideLogin = () => {
   const [modal, setmodal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const setList = useSetRecoilState(userList);
 
   const closeModal = () => {
     setmodal(false);
@@ -30,10 +33,16 @@ const SideLogin = () => {
       console.log(data);
       localStorage.setItem("Blog_accessToken", data.accessToken);
       localStorage.setItem("Blog_refreshToken", data.refreshToken);
-      console.log("sucees");
+      setList({
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
 
+      console.log("sucees");
       toast.success("로그인 성공");
-      window.location.replace("/");
+      // window.location.replace("/");
     } catch (e: any) {
       // console.log(error);
       const { data } = e.response;

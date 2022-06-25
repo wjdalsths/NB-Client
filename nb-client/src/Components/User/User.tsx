@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./style";
-import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChangeInfoModal from "../ChangeInfoModal/ChangeInfoModal";
+import { useRecoilValue } from "recoil";
+import { userList } from "../../atoms";
 
 const User = () => {
-  const [blog, setBlog] = useState([]);
   const name = "wjdaasdfffffffffffls";
-  const id = "1234";
   const [modal, setmodal] = useState(false);
+  const list = useRecoilValue(userList);
 
   const closeModal = () => {
     setmodal(false);
   };
-  useEffect(() => {
-    const url = "";
-    axios
-      .get(url)
-      .then((res: any) => {
-        console.log(res);
-        setBlog(res.data);
-      })
-      .catch((error: any) => {
-        console.log("error");
-      });
-  }, []);
 
   const onLogout = () => {
     localStorage.removeItem("Blog_accessToken");
@@ -42,7 +30,7 @@ const User = () => {
             <img src="Icons/user.png" alt="" />
           </S.ProfileImg>
           <S.UserContents>
-            {id}
+            {list.id}
             <br />
             {name}
           </S.UserContents>
