@@ -1,13 +1,13 @@
 import { customAxios } from "../Utils/Libs/customAxios";
 
-export const ContentFree = async () => {
+export const contentFree = async () => {
   try {
     const { data } = await customAxios.get("/FBN/");
     return { data };
   } catch (e: any) {}
 };
 
-export const WriteFree = async (
+export const writeFree = async (
   title: string,
   content: string,
   imgBase64: string

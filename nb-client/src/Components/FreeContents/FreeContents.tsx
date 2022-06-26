@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
-import { ContentFree } from "../../Api/Free";
+import { contentFree } from "../../Api/Free";
 
 const FreeContents = () => {
   const [blog, setBlog] = useState([]);
@@ -9,7 +9,7 @@ const FreeContents = () => {
 
   useEffect(() => {
     // const url = "https://jsonplaceholder.typicode.com/posts";
-    ContentFree()
+    contentFree()
       .then((res: any) => {
         console.log(res);
         setBlog(res.data);

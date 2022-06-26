@@ -3,10 +3,13 @@ import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { customAxios } from "../../Utils/Libs/customAxios";
 import { useSetRecoilState } from "recoil";
 import { userList } from "../../atoms";
+import { signin } from "../../Api/user";
 
+const Signin = async (email: string, password: string) => {
+  return await signin(email, password);
+};
 const SideLogin = () => {
   const [modal, setmodal] = useState(false);
   const [email, setEmail] = useState("");
@@ -24,32 +27,28 @@ const SideLogin = () => {
     if (!emailRegex.test(email)) {
       return toast.error("이메일 형식이 틀렸습니다. 다시 확인해주세요");
     }
-    try {
-      const { data } = await customAxios.post("/login/", {
-        email: email,
-        password: password,
-      });
+    Signin(email, password)
+      .then((res) => {
+        console.log(Signin);
+        localStorage.setItem("Blog_accessToken", res?.data.accessToken);
+        localStorage.setItem("Blog_refreshToken", res?.data.refreshToken);
+        setList({
+          id: res?.data.id,
+          name: res?.data.name,
+          email: res?.data.email,
+          password: res?.data.password,
+        });
 
-      console.log(data);
-      localStorage.setItem("Blog_accessToken", data.accessToken);
-      localStorage.setItem("Blog_refreshToken", data.refreshToken);
-      setList({
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        password: data.password,
+        console.log("sucees");
+        toast.success("로그인 성공");
+        window.location.replace("/");
+      })
+      .catch((e) => {
+        const { data } = e.response;
+        console.error("data : ", data);
+        console.error(data.message);
+        toast.error("다시 로그인 해주세요");
       });
-
-      console.log("sucees");
-      toast.success("로그인 성공");
-      window.location.replace("/");
-    } catch (e: any) {
-      // console.log(error);
-      const { data } = e.response;
-      console.error("data : ", data);
-      console.error(data.message);
-      toast.error("다시 로그인 해주세요");
-    }
   };
 
   return (

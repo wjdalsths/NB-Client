@@ -1,14 +1,14 @@
 import { useState } from "react";
 import * as S from "./style";
 import { toast } from "react-toastify";
-import { WriteFree } from "../../Api/Free";
+import { writeFree } from "../../Api/Free";
 
 const WriteBoard = async (
   title: string,
   content: string,
   imgBase64: string
 ) => {
-  return await WriteFree(title, content, imgBase64);
+  return await writeFree(title, content, imgBase64);
 };
 const FreeWrite = () => {
   const [title, setTitle] = useState("");
