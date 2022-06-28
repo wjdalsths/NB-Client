@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../../Components/Header/Header";
 import * as S from "./style";
+import Header from "../../Components/Header/Header";
 import SideBar from "../../Components/SideBar/SideBar";
 import NoticeContents from "../../Components/NoticeContents/NoticeContents";
 
-const MainPage = () => {
+const NoticePage = () => {
   return (
     <>
       <S.Wrapper>
@@ -18,4 +18,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default NoticePage;

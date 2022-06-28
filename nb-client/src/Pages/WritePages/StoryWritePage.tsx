@@ -4,7 +4,7 @@ import Header from "../../Components/Header/Header";
 import SideBar from "../../Components/SideBar/SideBar";
 import StoryWrite from "../../Components/StroyWrite/StoryWrite";
 
-const FreeWritePage = () => {
+const StoryWritePage = () => {
   return (
     <>
       <S.Wrapper>
@@ -18,4 +18,4 @@ const FreeWritePage = () => {
   );
 };
 
-export default FreeWritePage;
+export default StoryWritePage;
