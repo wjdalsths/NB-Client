@@ -16,6 +16,7 @@ export const Items = styled.div`
   span {
     margin-left: 1rem;
   }
+  cursor: pointer;
 `;
 
 export const Icons = styled.div`
