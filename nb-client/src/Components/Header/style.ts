@@ -15,15 +15,22 @@ export const Logo = styled.a`
   margin: 0;
 `;
 
+export const DocumentList = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const WriteWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
+  margin-left: 1rem;
+
   img {
     width: 2.5rem;
     margin-top: 3rem;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
   }
   p {
     margin: 0;

@@ -5,13 +5,11 @@ import SideMenu from "../SideMenu/SideMenu";
 import User from "../User/User";
 import isLogin from "../../Utils/Libs/isLogin";
 
-const SideBar = () => {
+const SideBar: React.FC = () => {
   return (
     <>
       <S.Container>
         {isLogin() ? <User /> : <SideLogin />}
-        {/* <SideLogin /> */}
-        {/* <User /> */}
         <SideMenu />
       </S.Container>
     </>

@@ -18,11 +18,11 @@ const Header = () => {
           >
             <S.Logo>NB</S.Logo>
           </Link>
-          <>
-            {isLogin() ? (
+          <S.DocumentList>
+            {true ? (
               <>
                 <Link
-                  to="/freeWrite"
+                  to="/"
                   style={{
                     textDecoration: "none",
                     textDecorationLine: "none",
@@ -31,11 +31,11 @@ const Header = () => {
                 >
                   <S.WriteWrapper>
                     <img src="Icons/documentlist.png" alt="" />
-                    <p>글쓰기</p>
+                    <p>글목록</p>
                   </S.WriteWrapper>
                 </Link>
                 <Link
-                  to="/"
+                  to="/freeWrite"
                   style={{
                     textDecoration: "none",
                     textDecorationLine: "none",
@@ -51,7 +51,7 @@ const Header = () => {
             ) : (
               ""
             )}
-          </>
+          </S.DocumentList>
         </S.Title>
 
         <S.Line />
