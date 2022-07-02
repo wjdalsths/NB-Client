@@ -3,9 +3,10 @@ import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { userList } from "../../atoms";
 import { signin } from "../../Api/user";
+import { useNavigate } from "react-router-dom";
 
 const Signin = async (email: string, password: string) => {
   return await signin(email, password);
@@ -15,6 +16,7 @@ const SideLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const setList = useSetRecoilState(userList);
+  const navigate = useNavigate();
 
   const closeModal = () => {
     setmodal(false);
@@ -29,7 +31,6 @@ const SideLogin = () => {
     }
     Signin(email, password)
       .then((res) => {
-        console.log(Signin);
         localStorage.setItem("Blog_accessToken", res?.data.accessToken);
         localStorage.setItem("Blog_refreshToken", res?.data.refreshToken);
         setList({
@@ -41,7 +42,8 @@ const SideLogin = () => {
 
         console.log("sucees");
         toast.success("로그인 성공");
-        window.location.replace("/");
+        console.log(res?.data.id);
+        navigate("home");
       })
       .catch((e) => {
         const { data } = e.response;
