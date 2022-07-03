@@ -10,6 +10,9 @@ const User = () => {
   const name = "wjdaasdfffffffffffls";
   const [modal, setmodal] = useState(false);
   const list = useRecoilValue(userList);
+  const id = localStorage.getItem("id");
+
+  console.log(list);
 
   const closeModal = () => {
     setmodal(false);
@@ -18,6 +21,7 @@ const User = () => {
   const onLogout = () => {
     localStorage.removeItem("Blog_accessToken");
     localStorage.removeItem("Blog_refreshToken");
+    localStorage.removeItem("id");
 
     toast.info("로그아웃 되었어요");
     window.location.replace("/");
@@ -30,7 +34,7 @@ const User = () => {
             <img src="Icons/user.png" alt="" />
           </S.ProfileImg>
           <S.UserContents>
-            {list.id}
+            {id}
             <br />
             {name}
           </S.UserContents>

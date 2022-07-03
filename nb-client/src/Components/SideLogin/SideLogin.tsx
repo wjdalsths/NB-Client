@@ -3,7 +3,7 @@ import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { userList } from "../../atoms";
 import { signin } from "../../Api/user";
 import { useNavigate } from "react-router-dom";
@@ -33,8 +33,10 @@ const SideLogin = () => {
       .then((res) => {
         localStorage.setItem("Blog_accessToken", res?.data.accessToken);
         localStorage.setItem("Blog_refreshToken", res?.data.refreshToken);
+        localStorage.setItem("id", res?.data);
+
         setList({
-          id: res?.data.id,
+          // id: res?.data.id,
           name: res?.data.name,
           email: res?.data.email,
           password: res?.data.password,
