@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import { contentFree } from "../../Api/Free";
+import FreeItem from "../Freeitem/FreeItem";
 
 const FreeContents = () => {
   const [blog, setBlog] = useState([]);
-
-  //   compoentDidMount(){}
 
   useEffect(() => {
     // const url = "https://jsonplaceholder.typicode.com/posts";
     contentFree()
       .then((res: any) => {
-        console.log(res);
+        console.log(res.data);
         setBlog(res.data);
       })
       .catch((error: any) => {
@@ -22,23 +21,21 @@ const FreeContents = () => {
   return (
     <>
       <S.items>
-        {blog.map((user: any) => (
-          <S.blogitem key={user.id}>
-            <S.imgbox>
-              <img
-                src={"data:image/png;base64," + user.img1}
-                alt="img"
-                style={{
-                  width: "100%",
-                  height: "180px",
-                }}
-              />
-            </S.imgbox>
-            <S.infobox>
-              <S.title>{user.title}</S.title>
-              {/* <S.info>{user.body}</S.info> */}
-            </S.infobox>
-          </S.blogitem>
+        {blog.map((item: any) => (
+          <FreeItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            context={item.context}
+            img1={item.img1}
+            img2={item.img1}
+            img3={item.img2}
+            img4={item.img4}
+            img5={item.im5}
+            create_user={item.create_user}
+            create_date={item.create_daa}
+            correction_date={item.correction_data}
+          />
         ))}
       </S.items>
     </>
