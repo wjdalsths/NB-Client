@@ -23,6 +23,7 @@ import {
   FreeWritePage,
   QuestionWritePage,
   StoryWritePage,
+  FreeWatchPage,
 } from "./Pages";
 
 const Router = () => {
@@ -37,6 +38,7 @@ const Router = () => {
       <Route path="/freeWrite" element={<FreeWritePage />} />
       <Route path="/storyWrite" element={<StoryWritePage />} />
       <Route path="/questionWrite" element={<QuestionWritePage />} />
+      <Route path="/free/:id" element={<FreeWatchPage />} />
     </Routes>
   );
 };
