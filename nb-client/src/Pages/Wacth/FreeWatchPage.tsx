@@ -3,24 +3,13 @@ import * as S from "./style";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import FreeWatch from "../../Components/FreeWatch/FreeWatch";
+import SideBar from "../../Components/SideBar/SideBar";
 import { customAxios } from "../../Utils/Libs/customAxios";
-interface BlogType {
-  id: number;
-  title: string;
-  context: string;
-  img1: string;
-  img2: string;
-  img3: string;
-  img4: string;
-  img5: string;
-  create_user: number;
-  create_date: string;
-  correction_date: string;
-}
+import { FreeType } from "../../types";
 
 const FreeWatchPage: React.FC = () => {
   const param = useParams();
-  const [freeWatch, setFreeWatch] = useState<BlogType>();
+  const [freeWatch, setFreeWatch] = useState<FreeType>();
 
   useEffect(() => {
     async function getFreeWatch() {
@@ -42,6 +31,7 @@ const FreeWatchPage: React.FC = () => {
         <Header />
         <S.Container>
           {freeWatch ? <FreeWatch freeWatch={freeWatch} /> : <div>로딩중</div>}
+          <SideBar />
         </S.Container>
       </S.Wrapper>
     </>
