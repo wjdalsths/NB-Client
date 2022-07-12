@@ -5,11 +5,11 @@ import StoryPage from "./MainPage/StoryPage";
 import NoticePage from "./MainPage/NoticePage";
 import QuestionPage from "./MainPage/QuestionPage";
 
-import FreeWritePage from "./WritePages/FreeWritePage";
-import QuestionWritePage from "./WritePages/QuestionWritePage";
-import StoryWritePage from "./WritePages/StoryWritePage";
+import FreeWritePage from "./WritePage/FreeWritePage";
+import QuestionWritePage from "./WritePage/QuestionWritePage";
+import StoryWritePage from "./WritePage/StoryWritePage";
 
-import FreeWatchPage from "./Wacth/FreeWatchPage";
+import FreeWatchPage from "./WatchPage/FreeWatchPage";
 export {
   FreePage,
   FreeWritePage,
