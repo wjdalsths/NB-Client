@@ -1,10 +1,9 @@
 import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
+import isLogin from "../../Utils/Libs/isLogin";
 
 const Header = () => {
-  const isLogin = () => !!localStorage.getItem("Blog_accessToken");
-
   return (
     <>
       <S.Container>
@@ -19,7 +18,7 @@ const Header = () => {
             <S.Logo>NB</S.Logo>
           </Link>
           <S.DocumentList>
-            {true ? (
+            {isLogin() ? (
               <>
                 <Link
                   to="/"
