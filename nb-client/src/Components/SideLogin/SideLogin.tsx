@@ -33,7 +33,7 @@ const SideLogin = () => {
       .then((res) => {
         localStorage.setItem("Blog_accessToken", res?.data.accessToken);
         localStorage.setItem("Blog_refreshToken", res?.data.refreshToken);
-        localStorage.setItem("id", res?.data);
+        localStorage.setItem("id", res?.data.id);
 
         setList({
           // id: res?.data.id,
