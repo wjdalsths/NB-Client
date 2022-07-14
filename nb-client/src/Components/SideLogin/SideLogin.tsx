@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import * as S from "./style";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import { toast } from "react-toastify";
@@ -44,8 +44,7 @@ const SideLogin = () => {
 
         console.log("sucees");
         toast.success("로그인 성공");
-        console.log(res?.data.id);
-        navigate("home");
+        navigate("/free");
       })
       .catch((e) => {
         const { data } = e.response;
