@@ -16,7 +16,6 @@ import { Routes, Route } from "react-router-dom";
 import {
   HomePage,
   FreePage,
-  MainPage,
   NoticePage,
   QuestionPage,
   StoryPage,
@@ -29,8 +28,7 @@ import {
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/free" element={<FreePage />} />
       <Route path="/story" element={<StoryPage />} />
       <Route path="/question" element={<QuestionPage />} />

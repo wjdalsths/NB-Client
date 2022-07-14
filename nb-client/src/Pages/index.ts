@@ -1,4 +1,3 @@
-import MainPage from "./MainPage/MainPage";
 import HomePage from "./MainPage/HomePage";
 import FreePage from "./MainPage/FreePage";
 import StoryPage from "./MainPage/StoryPage";
@@ -13,7 +12,6 @@ import FreeWatchPage from "./WatchPage/FreeWatchPage";
 export {
   FreePage,
   FreeWritePage,
-  MainPage,
   HomePage,
   NoticePage,
   QuestionPage,
