@@ -6,13 +6,14 @@ interface FreeTypeProps {
   freeWatch: FreeType;
 }
 const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
+  console.log(freeWatch.img1);
   return (
     <>
       <S.Positioner>
         <S.Board>
           <S.Imgboard>
             <S.Img>
-              <img alt="image" src={freeWatch.img1} />
+              <img src={"data:image/png;base64," + freeWatch.img1} />
             </S.Img>
           </S.Imgboard>
           <S.Title>{freeWatch.title}</S.Title>
