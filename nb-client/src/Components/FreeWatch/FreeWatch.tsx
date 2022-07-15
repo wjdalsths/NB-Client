@@ -10,13 +10,15 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
     <>
       <S.Positioner>
         <S.Board>
-          <S.Imgboard>
-            <S.Img>
-              <img src={"data:image/png;base64," + freeWatch.img1} />
-            </S.Img>
-          </S.Imgboard>
-          <S.Title>{freeWatch.title}</S.Title>
-          <S.Infobox>{freeWatch.context}</S.Infobox>
+          <S.Img>
+            <img src={"data:image/png;base64," + freeWatch.img1} />
+          </S.Img>
+          <S.Title>
+            <p>{freeWatch.title}</p>
+          </S.Title>
+          <S.Infobox>
+            <p>{freeWatch.context}</p>
+          </S.Infobox>
         </S.Board>
       </S.Positioner>
     </>
