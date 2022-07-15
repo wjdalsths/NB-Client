@@ -6,7 +6,6 @@ interface FreeTypeProps {
   freeWatch: FreeType;
 }
 const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
-  console.log(freeWatch.img1);
   return (
     <>
       <S.Positioner>
