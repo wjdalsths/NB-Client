@@ -32,3 +32,15 @@ export const writeFree = async (
     return { data };
   } catch (e: any) {}
 };
+
+export const getWatchFree = async (id: string | undefined) => {
+  try {
+    const { data } = await customAxios.get(`/FBN/${id}`);
+    console.log(data);
+    console.log(1234);
+
+    return { data };
+  } catch (e: any) {
+    console.log(e.massage);
+  }
+};
