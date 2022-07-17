@@ -4,25 +4,20 @@ import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import FreeWatch from "../../Components/FreeWatch/FreeWatch";
 import SideBar from "../../Components/SideBar/SideBar";
-import { customAxios } from "../../Utils/Libs/customAxios";
 import { FreeType } from "../../types";
+import { getWatchFree } from "../../Api/Free";
 
 const FreeWatchPage: React.FC = () => {
   const param = useParams();
   const [freeWatch, setFreeWatch] = useState<FreeType>();
 
   useEffect(() => {
-    async function getFreeWatch() {
-      try {
-        const res = await customAxios.get(`/FBN/${param.id}`);
-        console.log(res.data);
-        setFreeWatch(res.data);
-      } catch (e: any) {
-        const { data } = e.response;
-        console.error("data : ", data);
-      }
+    async function ReturnWatchFree() {
+      getWatchFree(param.id).then((res) => {
+        setFreeWatch(res?.data);
+      });
     }
-    getFreeWatch();
+    ReturnWatchFree();
   }, []);
 
   return (
