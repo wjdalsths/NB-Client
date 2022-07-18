@@ -36,11 +36,17 @@ export const writeFree = async (
 export const getWatchFree = async (id: string | undefined) => {
   try {
     const { data } = await customAxios.get(`/FBN/${id}`);
-    console.log(data);
-    console.log(1234);
-
     return { data };
   } catch (e: any) {
     console.log(e.massage);
+  }
+};
+
+export const commentWriteFree = async (id: number) => {
+  try {
+    const { data } = await customAxios.get(`/CFR/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
   }
 };
