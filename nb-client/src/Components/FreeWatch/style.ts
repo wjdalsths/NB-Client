@@ -28,7 +28,7 @@ export const Img = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const Titlebox = styled.div`
   width: 100%;
   height: 10vh;
   margin-top: 2rem;
@@ -38,14 +38,18 @@ export const Title = styled.div`
   border-radius: 5px;
   font-size: 3rem;
   font-weight: bolder;
-  p {
-    width: 100%;
-    padding: 0 0 0 1vw;
-  }
+`;
+export const Title = styled.div`
+  width: 100%;
+  padding: 0 0 0 1vw;
+`;
+export const TitleUser = styled.div`
+  padding: 0 1vw 0 0;
 `;
 
 export const Infobox = styled.div`
   width: 100%;
+  height: 55vh;
   display: flex;
   margin: 3.5vh 0;
   border: 3px solid black;
@@ -53,8 +57,43 @@ export const Infobox = styled.div`
   font-size: 1.5rem;
   p {
     width: 100%;
-    height: 55vh;
     padding: 2vh 0 0 1vw;
     border-radius: 5px;
+  }
+`;
+
+export const Commentbox = styled.div`
+  width: 100%;
+  height: 10vh;
+  /* background-color: blue; */
+  margin-bottom: 3.5vh;
+  p {
+    font-size: 25px;
+  }
+`;
+
+export const CommentInput = styled.div`
+  width: 100%;
+  height: 35px;
+  margin: 1rem;
+  border-bottom: 2px solid black;
+  display: flex;
+  input {
+    font-size: 15px;
+    width: 100%;
+  }
+`;
+
+export const SubButton = styled.button`
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  width: 80px;
+  height: 30px;
+  border-radius: 50px;
+  :hover {
+    background-color: #b9a0fe;
   }
 `;
