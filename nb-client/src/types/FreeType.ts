@@ -11,3 +11,12 @@ export interface FreeType {
   create_date: string;
   correction_date: string;
 }
+
+export interface FreeCommentType {
+  id: number;
+  context: string;
+  create_id_user_fr: number;
+  comment_NB: number;
+  create_date: string;
+  correction_date: string;
+}
