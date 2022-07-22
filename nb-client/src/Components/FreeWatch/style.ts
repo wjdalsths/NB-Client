@@ -65,8 +65,7 @@ export const Infobox = styled.div`
 export const Commentbox = styled.div`
   width: 100%;
   height: 10vh;
-  /* background-color: blue; */
-  margin-bottom: 3.5vh;
+  border-bottom: 1px solid black;
   p {
     font-size: 25px;
   }
@@ -96,4 +95,8 @@ export const SubButton = styled.button`
   :hover {
     background-color: #b9a0fe;
   }
+`;
+
+export const Items = styled.div`
+  width: 100%;
 `;
