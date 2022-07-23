@@ -23,11 +23,27 @@ export const CreateDate = styled.div`
 export const CommentContent = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 0 20px 45px;
+  align-items: center;
+  padding: 0 0 15px 45px;
 `;
 export const Comment = styled.div`
   font-size: 23px;
 `;
 
-export const BtnWrapper = styled.button``;
-export const Btn = styled.button``;
+export const BtnWrapper = styled.button`
+  display: flex;
+  margin-bottom: -20px;
+`;
+export const Btn = styled.button`
+  width: 60px;
+  height: 25px;
+  margin-right: 5px;
+  background-color: #6a5acd;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 50px;
+  :hover {
+    background-color: #b9a0fe;
+  }
+`;
