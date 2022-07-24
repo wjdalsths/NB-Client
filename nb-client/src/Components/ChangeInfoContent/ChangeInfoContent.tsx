@@ -34,12 +34,12 @@ const ChangeInfoContent = () => {
           password: password,
         },
       })
-        .then((res) => {
+        .then((res: any) => {
           console.log(res);
           console.log("성공");
           toast.success("수정 완료되었습니다.");
         })
-        .catch((e) => {
+        .catch((e: any) => {
           console.log(e);
         });
     }
