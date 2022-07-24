@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const items = styled.div`
-  /* width: 100%; */
-  margin: -1rem;
-  justify-content: center;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 `;
 export const blogitem = styled.div`
   /* width: 15.5rem; */

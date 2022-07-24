@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const blogitem = styled.div`
   /* width: 15.5rem; */
   width: 250px;
+  height: 250px;
   margin: 1rem;
   background: #ffffff;
   box-sizing: border-box;
