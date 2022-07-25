@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { FreeType } from "../../types";
-import { commentWriteFree } from "../../Api/Free";
+import { getCommentFree, writeCommentFree } from "../../Api/Free";
 import FreeCommentItem from "../FreeCommentItem/FreeCommentItem";
+import { toast } from "react-toastify";
 
 interface FreeTypeProps {
   freeWatch: FreeType;
@@ -10,9 +11,33 @@ interface FreeTypeProps {
 
 const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   const [comment, setComment] = useState([]);
+  const [addComment, setAddComment] = useState("");
+  const [temp, setTemp] = useState(true);
+
+  const onChangeComment = (e: any) => {
+    setAddComment(e.target.value);
+  };
+
+  const onSubmit = () => {
+    const userId = Number(localStorage.getItem("id"));
+    let pattern = /^\s\s*$/;
+    if (addComment.match(pattern) || addComment === "") {
+      toast.warning("내용을 입력해주세요.");
+    } else {
+      writeCommentFree(addComment, userId, freeWatch.id)
+        .then(() => {
+          toast.success("게시되었습니다.");
+          setAddComment("");
+          setTemp(!temp);
+        })
+        .catch((error: any) => {
+          console.log(error.mesaage);
+        });
+    }
+  };
 
   useEffect(() => {
-    commentWriteFree(freeWatch.id)
+    getCommentFree(freeWatch.id)
       .then((res: any) => {
         console.log(res.data);
         setComment(res.data);
@@ -20,7 +45,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
       .catch((error: any) => {
         console.log(error);
       });
-  }, []);
+  }, [temp]);
   return (
     <>
       <S.Positioner>
@@ -39,8 +64,13 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
         <S.Commentbox>
           <p>댓글</p>
           <S.CommentInput>
-            <input placeholder="댓글 추가..." />
-            <S.SubButton>추가</S.SubButton>
+            <input
+              type={"text"}
+              value={addComment}
+              placeholder={"댓글 추가..."}
+              onChange={onChangeComment}
+            />
+            <S.SubButton onClick={onSubmit}>추가</S.SubButton>
           </S.CommentInput>
           <S.Items>
             {comment ? (

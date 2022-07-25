@@ -42,9 +42,26 @@ export const getWatchFree = async (id: string | undefined) => {
   }
 };
 
-export const commentWriteFree = async (id: number) => {
+export const getCommentFree = async (id: number) => {
   try {
     const { data } = await customAxios.get(`/CFR/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
+  }
+};
+
+export const writeCommentFree = async (
+  comment: string,
+  userId: number | null,
+  contentId: number
+) => {
+  try {
+    const { data } = await customAxios.post(`/CFR/`, {
+      context: comment,
+      create_id_user_fr: userId,
+      comment_NB: contentId,
+    });
     return { data };
   } catch (e: any) {
     console.log(e.masaage);
