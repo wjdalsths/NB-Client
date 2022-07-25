@@ -10,6 +10,7 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
   create_date,
   correction_date,
 }) => {
+  const userId = Number(localStorage.getItem("id"));
   return (
     <>
       <S.CommentItem>
@@ -19,10 +20,14 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
         </S.CreateInformation>
         <S.CommentContent>
           <S.Comment>{context}</S.Comment>
-          <S.BtnWrapper>
-            <S.Btn>수정</S.Btn>
-            <S.Btn>삭제</S.Btn>
-          </S.BtnWrapper>
+          {userId === create_id_user_fr ? (
+            <S.BtnWrapper>
+              <S.Btn>수정</S.Btn>
+              <S.Btn>삭제</S.Btn>
+            </S.BtnWrapper>
+          ) : (
+            <p></p>
+          )}
         </S.CommentContent>
       </S.CommentItem>
     </>
