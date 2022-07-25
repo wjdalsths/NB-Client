@@ -75,6 +75,7 @@ export const CommentInput = styled.div`
   width: 100%;
   height: 35px;
   margin: 1rem;
+  margin-bottom: 60px;
   border-bottom: 2px solid black;
   display: flex;
   input {
