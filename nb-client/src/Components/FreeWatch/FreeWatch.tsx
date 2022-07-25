@@ -18,7 +18,9 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
     setAddComment(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+
     const userId = Number(localStorage.getItem("id"));
     let pattern = /^\s\s*$/;
     if (addComment.match(pattern) || addComment === "") {
@@ -69,6 +71,9 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
               value={addComment}
               placeholder={"댓글 추가..."}
               onChange={onChangeComment}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") onSubmit(e);
+              }}
             />
             <S.SubButton onClick={onSubmit}>추가</S.SubButton>
           </S.CommentInput>
