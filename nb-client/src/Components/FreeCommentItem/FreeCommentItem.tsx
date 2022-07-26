@@ -95,7 +95,6 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
               )}
               <S.delBtn
                 onClick={(e: any) => {
-                  setChgCommentState(!chgCommentState);
                   delComment(e);
                 }}
               >
