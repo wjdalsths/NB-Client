@@ -85,3 +85,12 @@ export const changeCommentFree = async (
     console.log(e.masaage);
   }
 };
+
+export const deleteCommentFree = async (id: number) => {
+  try {
+    const { data } = await customAxios.delete(`/CFR/DE/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
+  }
+};

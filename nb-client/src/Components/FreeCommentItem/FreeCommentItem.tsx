@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 import { FreeCommentType } from "../../types";
 import getUserId from "../../Utils/Libs/getUserId";
-import { changeCommentFree } from "../../Api/Free";
+import { changeCommentFree, deleteCommentFree } from "../../Api/Free";
 import { toast } from "react-toastify";
 
 const FreeCommentItem: React.FC<FreeCommentType> = ({
@@ -28,8 +28,6 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
     if (chgComment.match(pattern) || chgComment === "") {
       toast.warning("내용을 입력해주세요.");
     } else {
-      console.log(comment_NB);
-
       changeCommentFree(id, chgComment, getUserId, comment_NB)
         .then(() => {
           toast.success("수정되었습니다.");
@@ -39,6 +37,19 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
           console.log(error.mesaage);
         });
     }
+  };
+
+  const delComment = (e: any) => {
+    e.preventDefault();
+
+    deleteCommentFree(id)
+      .then(() => {
+        toast.success("삭제되었습니다.");
+        chgTemp(!temp);
+      })
+      .catch((error: any) => {
+        console.log(error.mesaage);
+      });
   };
 
   return (
@@ -82,7 +93,14 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
                   수정
                 </S.chgBtn>
               )}
-              <S.delBtn>삭제</S.delBtn>
+              <S.delBtn
+                onClick={(e: any) => {
+                  setChgCommentState(!chgCommentState);
+                  delComment(e);
+                }}
+              >
+                삭제
+              </S.delBtn>
             </S.BtnWrapper>
           ) : (
             <p></p>
