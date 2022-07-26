@@ -14,6 +14,10 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   const [addComment, setAddComment] = useState("");
   const [temp, setTemp] = useState(true);
 
+  const chgTemp = (value: boolean) => {
+    setTemp(value);
+  };
+
   const onChangeComment = (e: any) => {
     setAddComment(e.target.value);
   };
@@ -87,6 +91,8 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
                   comment_NB={item.comment_NB}
                   create_date={item.create_date}
                   correction_date={item.correction_date}
+                  chgTemp={chgTemp}
+                  temp={temp}
                 />
               ))
             ) : (

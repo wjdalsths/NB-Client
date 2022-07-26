@@ -19,4 +19,6 @@ export interface FreeCommentType {
   comment_NB: number;
   create_date: string;
   correction_date: string;
+  chgTemp: any;
+  temp: boolean;
 }

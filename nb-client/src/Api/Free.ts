@@ -67,3 +67,21 @@ export const writeCommentFree = async (
     console.log(e.masaage);
   }
 };
+
+export const changeCommentFree = async (
+  id: number,
+  comment: string,
+  userId: number | null,
+  contentId: number
+) => {
+  try {
+    const { data } = await customAxios.put(`/CFR/DE/${id}`, {
+      context: comment,
+      create_id_user_fr: userId,
+      comment_NB: contentId,
+    });
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
+  }
+};
