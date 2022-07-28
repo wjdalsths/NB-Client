@@ -67,6 +67,7 @@ export const delBtn = styled.button`
   border-radius: 50px;
   :hover {
     background-color: #b9a0fe;
+    color: red;
   }
 `;
 type chgType = { state: boolean };
