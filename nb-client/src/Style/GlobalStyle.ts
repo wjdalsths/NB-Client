@@ -35,8 +35,5 @@ export const GlobalStyle = createGlobalStyle`
   label {
     cursor: pointer;
   }
-  svg{
-    margin-right:0.5rem;
-  }
 
 `;

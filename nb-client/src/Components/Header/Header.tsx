@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
 import isLogin from "../../Utils/Libs/isLogin";
-
+import * as SVG from "../../SVG";
 const Header = () => {
   return (
     <>
@@ -29,7 +29,7 @@ const Header = () => {
                   }}
                 >
                   <S.WriteWrapper>
-                    <img src="Icons/documentlist.png" alt="" />
+                    <SVG.Documentlist />
                     <p>글목록</p>
                   </S.WriteWrapper>
                 </Link>
@@ -42,7 +42,7 @@ const Header = () => {
                   }}
                 >
                   <S.WriteWrapper>
-                    <img src="Icons/writing.png" alt="" />
+                    <SVG.Write />
                     <p>글쓰기</p>
                   </S.WriteWrapper>
                 </Link>

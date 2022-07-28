@@ -23,12 +23,11 @@ export const DocumentList = styled.div`
 export const WriteWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   margin-left: 1rem;
 
-  img {
-    width: 2.5rem;
+  SVG {
     margin-top: 3rem;
     margin-bottom: 5px;
   }
