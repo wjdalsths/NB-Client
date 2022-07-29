@@ -43,6 +43,15 @@ export const getWatchFree = async (id: string | undefined) => {
   }
 };
 
+export const deleteFree = async (id: number) => {
+  try {
+    const { data } = await customAxios.delete(`/FBN/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
+  }
+};
+
 export const getCommentFree = async (id: number) => {
   try {
     const { data } = await customAxios.get(`/CFR/${id}`);
