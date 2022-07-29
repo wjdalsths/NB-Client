@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSetRecoilState } from "recoil";
 import { userList } from "../../atoms";
 import { signin } from "../../Api/user";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Signin = async (email: string, password: string) => {
   return await signin(email, password);
@@ -16,7 +16,7 @@ const SideLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const setList = useSetRecoilState(userList);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const closeModal = () => {
     setmodal(false);
@@ -44,7 +44,8 @@ const SideLogin = () => {
 
         console.log("sucees");
         toast.success("로그인 성공");
-        navigate("/free");
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
       })
       .catch((e) => {
         const { data } = e.response;
