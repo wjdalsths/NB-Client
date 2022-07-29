@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
+import * as SVG from "../../SVG";
 import isLogin from "../../Utils/Libs/isLogin";
 
 const SideMenu = () => {
@@ -10,7 +11,7 @@ const SideMenu = () => {
       <S.Positioner>
         <S.Items onClick={() => navigate(`/free`)}>
           <S.Icons>
-            <img src="Icons/freedom.png" alt="" />
+            <SVG.Free />
           </S.Icons>
           <span>자유</span>
         </S.Items>
@@ -18,7 +19,7 @@ const SideMenu = () => {
           onClick={() => (isLogin() ? navigate(`/story`) : navigate("/"))}
         >
           <S.Icons>
-            <img src="Icons/book.png" alt="" />
+            <SVG.Book />
           </S.Icons>
           <span>스토리</span>
         </S.Items>
@@ -26,7 +27,7 @@ const SideMenu = () => {
           onClick={() => (isLogin() ? navigate(`/question`) : navigate("/"))}
         >
           <S.Icons>
-            <img src="Icons/document.png" alt="" />
+            <SVG.Document />
           </S.Icons>
           <span>문의사항</span>
         </S.Items>
@@ -34,7 +35,7 @@ const SideMenu = () => {
           onClick={() => (isLogin() ? navigate(`/notice`) : navigate("/"))}
         >
           <S.Icons>
-            <img src="Icons/notice.png" alt="" />
+            <SVG.Notice />
           </S.Icons>
           <span>공지사항</span>
         </S.Items>

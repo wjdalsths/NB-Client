@@ -20,7 +20,8 @@ export const Items = styled.div`
 `;
 
 export const Icons = styled.div`
-  img {
+  SVG {
     width: 3rem;
+    height: 3rem;
   }
 `;
