@@ -10,7 +10,8 @@ export const contentFree = async () => {
 export const writeFree = async (
   title: string,
   content: string,
-  imgBase64: string
+  imgBase64: string,
+  id: number
 ) => {
   try {
     const { data } = await customAxios.post(
@@ -23,7 +24,7 @@ export const writeFree = async (
         img3: "",
         img4: "",
         img5: "",
-        create_user: 1,
+        create_user: id,
       },
       {
         headers: { "Content-Type": "application/json" },

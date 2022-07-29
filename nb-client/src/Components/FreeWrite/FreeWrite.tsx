@@ -2,14 +2,8 @@ import { useState } from "react";
 import * as S from "./style";
 import { toast } from "react-toastify";
 import { writeFree } from "../../Api/Free";
+import getUserId from "../../Utils/Libs/getUserId";
 
-const WriteBoard = async (
-  title: string,
-  content: string,
-  imgBase64: string
-) => {
-  return await writeFree(title, content, imgBase64);
-};
 const FreeWrite = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -58,19 +52,17 @@ const FreeWrite = () => {
       console.log("no content");
       alert("내용을 입력해주세요.");
     } else {
-      WriteBoard(title, content, imgBase64)
+      writeFree(title, content, imgBase64, getUserId)
         .then((res) => {
           console.log(res);
-          console.log("성공");
-          console.log(imgBase64);
           toast.success("게시되었습니다.");
           setTitle("");
           setContent("");
           deleteFileImage();
           window.location.replace("/free");
         })
-        .catch((error: any) => {
-          console.log("error");
+        .catch((e: any) => {
+          console.log(e.message);
         });
     }
   };
