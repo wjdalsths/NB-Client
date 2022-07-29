@@ -13,6 +13,7 @@ export const Logo = styled.a`
   color: #6a5acd;
   font-size: 5rem;
   margin: 0;
+  cursor: pointer;
 `;
 
 export const DocumentList = styled.div`
@@ -26,6 +27,7 @@ export const WriteWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 1rem;
+  cursor: pointer;
 
   SVG {
     margin-top: 3rem;
