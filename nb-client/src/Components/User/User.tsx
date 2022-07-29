@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
+import * as SVG from "../../SVG";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChangeInfoModal from "../ChangeInfoModal/ChangeInfoModal";
@@ -31,7 +32,7 @@ const User = () => {
       <S.Positioner>
         <S.ProfileWrapper>
           <S.ProfileImg>
-            <img src="Icons/user.png" alt="" />
+            <SVG.User />
           </S.ProfileImg>
           <S.UserContents>
             {id}

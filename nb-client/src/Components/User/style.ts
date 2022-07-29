@@ -17,8 +17,9 @@ export const ProfileWrapper = styled.div`
   display: flex;
 `;
 export const ProfileImg = styled.div`
-  img {
+  SVG {
     width: 6rem;
+    height: 6rem;
   }
   margin: 1rem;
 `;
