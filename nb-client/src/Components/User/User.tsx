@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import * as SVG from "../../SVG";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChangeInfoModal from "../ChangeInfoModal/ChangeInfoModal";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { userList } from "../../atoms";
-
+import { getUser } from "../../Api/user";
 const User = () => {
-  const name = "wjdaasdfffffffffffls";
+  const [name, setName] = useState("");
   const [modal, setmodal] = useState(false);
-  const list = useRecoilValue(userList);
+  const [list, setList] = useRecoilState(userList);
   const id = localStorage.getItem("id");
 
   console.log(list);
@@ -18,7 +18,18 @@ const User = () => {
   const closeModal = () => {
     setmodal(false);
   };
-
+  useEffect(() => {
+    getUser(id).then((res) => {
+      console.log(res?.data);
+      setName(res?.data.name);
+      // setList({
+      //   // id: res?.data.id,
+      //   name: res?.data.name,
+      //   email: res?.data.email,
+      //   password: res?.data.password,
+      // });
+    });
+  }, []);
   const onLogout = () => {
     localStorage.removeItem("Blog_accessToken");
     localStorage.removeItem("Blog_refreshToken");
