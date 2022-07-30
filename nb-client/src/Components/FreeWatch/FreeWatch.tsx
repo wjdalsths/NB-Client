@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { FreeType } from "../../types";
-import { getCommentFree, writeCommentFree } from "../../Api/Free";
+import { deleteFree, getCommentFree, writeCommentFree } from "../../Api/Free";
 import FreeCommentItem from "../FreeCommentItem/FreeCommentItem";
 import { toast } from "react-toastify";
+import getUserId from "../../Utils/Libs/getUserId";
+import { useNavigate } from "react-router-dom";
 
 interface FreeTypeProps {
   freeWatch: FreeType;
@@ -13,6 +15,8 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   const [comment, setComment] = useState([]);
   const [addComment, setAddComment] = useState("");
   const [temp, setTemp] = useState(true);
+  const [chgCommentState, setChgCommentState] = useState(false);
+  const navigate = useNavigate();
 
   const chgTemp = (value: boolean) => {
     setTemp(value);
@@ -42,6 +46,18 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
     }
   };
 
+  const delFree = (e: any) => {
+    e.preventDefault();
+
+    deleteFree(freeWatch.id)
+      .then(() => {
+        toast.success("삭제되었습니다.");
+        navigate("/free");
+      })
+      .catch((error: any) => {
+        console.log(error.mesaage);
+      });
+  };
   useEffect(() => {
     getCommentFree(freeWatch.id)
       .then((res: any) => {
@@ -66,6 +82,40 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
           <S.Infobox>
             <p>{freeWatch.context}</p>
           </S.Infobox>
+
+          {getUserId === freeWatch.create_user ? (
+            <S.BtnWrapper>
+              {chgCommentState ? (
+                <S.chgBtn
+                  onClick={(e: any) => {
+                    setChgCommentState(!chgCommentState);
+                    onSubmit(e);
+                  }}
+                  // state={chgCommentState}
+                >
+                  댓글 수정
+                </S.chgBtn>
+              ) : (
+                <S.chgBtn
+                  onClick={() => {
+                    setChgCommentState(!chgCommentState);
+                  }}
+                  // state={chgCommentState}
+                >
+                  수정
+                </S.chgBtn>
+              )}
+              <S.delBtn
+                onClick={(e: any) => {
+                  delFree(e);
+                }}
+              >
+                삭제
+              </S.delBtn>
+            </S.BtnWrapper>
+          ) : (
+            <p></p>
+          )}
         </S.Board>
         <S.Commentbox>
           <p>댓글</p>
@@ -81,6 +131,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
             />
             <S.SubButton onClick={onSubmit}>추가</S.SubButton>
           </S.CommentInput>
+
           <S.Items>
             {comment ? (
               comment.map((item: any) => (

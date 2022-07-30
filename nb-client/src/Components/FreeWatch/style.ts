@@ -10,6 +10,7 @@ export const Board = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5rem;
 `;
 
 export const Img = styled.div`
@@ -59,6 +60,40 @@ export const Infobox = styled.div`
     width: 100%;
     padding: 2vh 0 0 1vw;
     border-radius: 5px;
+  }
+`;
+
+export const BtnWrapper = styled.button`
+  display: flex;
+  margin-bottom: -20px;
+`;
+export const chgBtn = styled.button`
+  width: 60px;
+  height: 25px;
+  margin-right: 5px;
+
+  background-color: #6a5acd;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 50px;
+  :hover {
+    background-color: #b9a0fe;
+  }
+`;
+export const delBtn = styled.button`
+  width: 60px;
+  height: 25px;
+  margin-right: 5px;
+
+  background-color: #6a5acd;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 50px;
+  :hover {
+    background-color: #b9a0fe;
+    color: red;
   }
 `;
 
