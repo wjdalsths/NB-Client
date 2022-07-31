@@ -4,7 +4,9 @@ export const contentFree = async () => {
   try {
     const { data } = await customAxios.get("/FBN/");
     return { data };
-  } catch (e: any) {}
+  } catch (e: any) {
+    console.log(e.message);
+  }
 };
 
 export const writeFree = async (
@@ -39,7 +41,7 @@ export const getWatchFree = async (id: string | undefined) => {
     const { data } = await customAxios.get(`/FBN/${id}`);
     return { data };
   } catch (e: any) {
-    console.log(e.massage);
+    console.log(e.message);
   }
 };
 
@@ -69,7 +71,7 @@ export const changeFree = async (
     );
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
   }
 };
 
@@ -78,7 +80,7 @@ export const deleteFree = async (id: number) => {
     const { data } = await customAxios.delete(`/FBN/${id}`);
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
   }
 };
 
@@ -87,7 +89,7 @@ export const getCommentFree = async (id: number) => {
     const { data } = await customAxios.get(`/CFR/${id}`);
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
   }
 };
 
@@ -104,7 +106,7 @@ export const writeCommentFree = async (
     });
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
   }
 };
 
@@ -122,7 +124,7 @@ export const changeCommentFree = async (
     });
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
   }
 };
 
@@ -131,6 +133,27 @@ export const deleteCommentFree = async (id: number) => {
     const { data } = await customAxios.delete(`/CFR/DE/${id}`);
     return { data };
   } catch (e: any) {
-    console.log(e.masaage);
+    console.log(e.message);
+  }
+};
+
+export const getLike = async (id: number) => {
+  try {
+    const { data } = await customAxios.get(`/suggest_fr/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
+export const upLike = async (userId: number, id: number) => {
+  try {
+    const { data } = await customAxios.post(`/suggest_fr/`, {
+      user: userId,
+      board: id,
+    });
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
   }
 };
