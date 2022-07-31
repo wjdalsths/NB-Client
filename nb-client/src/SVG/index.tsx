@@ -5,3 +5,4 @@ export * from "./Document";
 export * from "./Documentlist";
 export * from "./Write";
 export * from "./Free";
+export * from "./Like";
