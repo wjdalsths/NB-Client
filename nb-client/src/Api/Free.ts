@@ -43,6 +43,36 @@ export const getWatchFree = async (id: string | undefined) => {
   }
 };
 
+export const changeFree = async (
+  id: number | undefined,
+  userId: number,
+  title: string,
+  content: string,
+  imgBase64: string
+) => {
+  try {
+    const { data } = await customAxios.put(
+      `/FBN/${id}`,
+      {
+        title: title,
+        context: content,
+        img1: imgBase64,
+        img2: "",
+        img3: "",
+        img4: "",
+        img5: "",
+        create_user: userId,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    return { data };
+  } catch (e: any) {
+    console.log(e.masaage);
+  }
+};
+
 export const deleteFree = async (id: number) => {
   try {
     const { data } = await customAxios.delete(`/FBN/${id}`);
