@@ -63,7 +63,9 @@ export const Infobox = styled.div`
   }
 `;
 
-export const items = styled.div``;
+export const items = styled.div`
+  display: flex;
+`;
 
 export const BtnWrapper = styled.button`
   display: flex;
@@ -99,7 +101,18 @@ export const delBtn = styled.button`
   }
 `;
 
-export const LikeBtn = styled.button``;
+export const LikeBtn = styled.button`
+  display: flex;
+  align-items: center;
+  SVG {
+    width: 36px;
+    height: 33px;
+  }
+  p {
+    font-size: 25px;
+    padding-top: 6px;
+  }
+`;
 
 export const Commentbox = styled.div`
   width: 100%;

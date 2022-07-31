@@ -134,7 +134,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
               )}
               <S.LikeBtn onClick={onLike}>
                 <SVG.Like />
-                <h1>{cntLike}</h1>
+                <p>{cntLike}</p>
               </S.LikeBtn>
             </S.BtnWrapper>
           </S.items>
