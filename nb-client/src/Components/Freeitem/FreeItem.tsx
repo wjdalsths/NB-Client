@@ -2,19 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./style";
 import { FreeType } from "../../types";
-const FreeItem: React.FC<FreeType> = ({
-  id,
-  title,
-  context,
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  create_user,
-  create_date,
-  correction_date,
-}) => {
+const FreeItem: React.FC<FreeType> = ({ id, title, img1 }) => {
   const navigate = useNavigate();
 
   return (
