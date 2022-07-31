@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./style";
 import { toast } from "react-toastify";
-import { writeFree } from "../../Api/Free";
+import { changeFree, writeFree } from "../../Api/Free";
 import getUserId from "../../Utils/Libs/getUserId";
+import { FreeType } from "../../types/FreeType";
+import { useNavigate } from "react-router-dom";
 
-const FreeWrite = () => {
+interface FreeTypeProps {
+  freeWatch: FreeType | null;
+}
+const FreeWrite = ({ freeWatch }: FreeTypeProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const [imgBase64, setimgBase64] = useState("");
   const [showimg, setShowing] = useState("");
-  const [imgFile, setimgFile] = useState(null);
+  const navigate = useNavigate();
 
   const handleChangeFile = (event: any) => {
     var reader = new FileReader();
@@ -24,22 +29,20 @@ const FreeWrite = () => {
     };
     if (event.target.files[0]) {
       reader.readAsDataURL(event.target.files[0]);
-      setimgFile(event.target.files[0]);
     }
   };
   const deleteFileImage = () => {
     setShowing("");
     setimgBase64("");
-    setimgFile(null);
   };
 
   const onChangeTitle = (e: any) => {
     setTitle(e.target.value);
-    // console.log(e.target.value);
+    console.log(e.target.value);
   };
   const onChangeContent = (e: any) => {
     setContent(e.target.value);
-    // console.log(e.target.value);
+    console.log(e.target.value);
   };
 
   const onSubmit = () => {
@@ -59,7 +62,7 @@ const FreeWrite = () => {
           setTitle("");
           setContent("");
           deleteFileImage();
-          window.location.replace("/free");
+          navigate("/free");
         })
         .catch((e: any) => {
           console.log(e.message);
@@ -67,13 +70,48 @@ const FreeWrite = () => {
     }
   };
 
+  const onChange = () => {
+    let pattern = /^\s\s*$/;
+    if (title.match(pattern) || title === "") {
+      console.log("no title");
+      alert("제목을 입력해주세요.");
+    } else if (content.match(pattern) || content === "") {
+      console.log("no content");
+      alert("내용을 입력해주세요.");
+    } else {
+      changeFree(freeWatch?.id, getUserId, title, content, imgBase64)
+        .then((res) => {
+          console.log(res);
+          toast.success("수정되었습니다.");
+          setTitle("");
+          setContent("");
+          deleteFileImage();
+          navigate("/free");
+        })
+        .catch((e: any) => {
+          console.log(e.message);
+        });
+    }
+  };
+
+  useEffect(() => {
+    async function setProps() {
+      if (freeWatch) {
+        setShowing("data:image/png;base64," + freeWatch.img1);
+        setTitle(freeWatch.title);
+        setContent(freeWatch.context);
+      }
+    }
+    setProps();
+  }, [freeWatch]);
+
   return (
     <>
       <S.Positioner>
         <S.Board>
           <S.Imgboard>
             <S.Img>
-              {imgFile ? (
+              {showimg ? (
                 <img alt="image" src={showimg} />
               ) : (
                 <label htmlFor="select">클릭하여 이미지 넣기</label>
@@ -100,16 +138,21 @@ const FreeWrite = () => {
           </S.Title>
           <S.Infobox>
             <textarea
-              // id=''
               value={content}
               onChange={onChangeContent}
               placeholder="CONTENT"
             />
           </S.Infobox>
         </S.Board>
-        <S.SubButton type="submit" onClick={onSubmit}>
-          UpLoad
-        </S.SubButton>
+        {freeWatch ? (
+          <S.SubButton type="submit" onClick={onChange}>
+            수정
+          </S.SubButton>
+        ) : (
+          <S.SubButton type="submit" onClick={onSubmit}>
+            UpLoad
+          </S.SubButton>
+        )}
       </S.Positioner>
     </>
   );

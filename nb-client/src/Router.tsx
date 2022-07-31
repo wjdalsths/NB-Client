@@ -34,6 +34,7 @@ const Router = () => {
       <Route path="/question" element={<QuestionPage />} />
       <Route path="/notice" element={<NoticePage />} />
       <Route path="/freeWrite" element={<FreeWritePage />} />
+      <Route path="/freeWrite/:id" element={<FreeWritePage />} />
       <Route path="/storyWrite" element={<StoryWritePage />} />
       <Route path="/questionWrite" element={<QuestionWritePage />} />
       <Route path="/free/:id" element={<FreeWatchPage />} />
