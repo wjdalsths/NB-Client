@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
+import * as SVG from "../../SVG";
 import { FreeType } from "../../types";
-import { deleteFree, getCommentFree, writeCommentFree } from "../../Api/Free";
+import {
+  deleteFree,
+  getCommentFree,
+  writeCommentFree,
+  getLike,
+  upLike,
+} from "../../Api/Free";
 import FreeCommentItem from "../FreeCommentItem/FreeCommentItem";
 import { toast } from "react-toastify";
 import getUserId from "../../Utils/Libs/getUserId";
@@ -15,8 +22,8 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   const [comment, setComment] = useState([]);
   const [addComment, setAddComment] = useState("");
   const [temp, setTemp] = useState(true);
-  const [chgCommentState, setChgCommentState] = useState(false);
   const navigate = useNavigate();
+  const [cntLike, setLike] = useState(0);
 
   const chgTemp = (value: boolean) => {
     setTemp(value);
@@ -41,7 +48,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
           setTemp(!temp);
         })
         .catch((error: any) => {
-          console.log(error.mesaage);
+          console.log(error.message);
         });
     }
   };
@@ -55,9 +62,28 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
         navigate("/free");
       })
       .catch((error: any) => {
-        console.log(error.mesaage);
+        console.log(error.message);
       });
   };
+
+  const getLikeCnt = () => {
+    getLike(freeWatch.id)
+      .then((res: any) => {
+        setLike(res.data);
+      })
+      .catch((error: any) => {
+        console.log(error.message);
+      });
+  };
+
+  const onLike = () => {
+    upLike(getUserId, freeWatch.id)
+      .then(() => getLikeCnt())
+      .catch((error: any) => {
+        console.log(error.message);
+      });
+  };
+
   useEffect(() => {
     getCommentFree(freeWatch.id)
       .then((res: any) => {
@@ -67,7 +93,9 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
       .catch((error: any) => {
         console.log(error);
       });
+    getLikeCnt();
   }, [temp]);
+
   return (
     <>
       <S.Positioner>
@@ -82,40 +110,34 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
           <S.Infobox>
             <p>{freeWatch.context}</p>
           </S.Infobox>
-
-          {getUserId === freeWatch.create_user ? (
+          <S.items>
             <S.BtnWrapper>
-              {chgCommentState ? (
-                <S.chgBtn
-                  onClick={(e: any) => {
-                    setChgCommentState(!chgCommentState);
-                    onSubmit(e);
-                  }}
-                  // state={chgCommentState}
-                >
-                  댓글 수정
-                </S.chgBtn>
+              {getUserId === freeWatch.create_user ? (
+                <>
+                  <S.chgBtn
+                    onClick={() => {
+                      navigate(`/freeWrite/${freeWatch.id}`);
+                    }}
+                  >
+                    수정
+                  </S.chgBtn>
+                  <S.delBtn
+                    onClick={(e: any) => {
+                      delFree(e);
+                    }}
+                  >
+                    삭제
+                  </S.delBtn>
+                </>
               ) : (
-                <S.chgBtn
-                  onClick={() => {
-                    setChgCommentState(!chgCommentState);
-                  }}
-                  // state={chgCommentState}
-                >
-                  수정
-                </S.chgBtn>
+                <p></p>
               )}
-              <S.delBtn
-                onClick={(e: any) => {
-                  delFree(e);
-                }}
-              >
-                삭제
-              </S.delBtn>
+              <S.LikeBtn onClick={onLike}>
+                <SVG.Like />
+                <h1>{cntLike}</h1>
+              </S.LikeBtn>
             </S.BtnWrapper>
-          ) : (
-            <p></p>
-          )}
+          </S.items>
         </S.Board>
         <S.Commentbox>
           <p>댓글</p>
@@ -131,8 +153,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
             />
             <S.SubButton onClick={onSubmit}>추가</S.SubButton>
           </S.CommentInput>
-
-          <S.Items>
+          <S.CommentItems>
             {comment ? (
               comment.map((item: any) => (
                 <FreeCommentItem
@@ -149,7 +170,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
             ) : (
               <p>댓글이 없습니다.</p>
             )}
-          </S.Items>
+          </S.CommentItems>
         </S.Commentbox>
       </S.Positioner>
     </>

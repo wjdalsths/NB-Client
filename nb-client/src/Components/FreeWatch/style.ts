@@ -63,6 +63,8 @@ export const Infobox = styled.div`
   }
 `;
 
+export const items = styled.div``;
+
 export const BtnWrapper = styled.button`
   display: flex;
   margin-bottom: -20px;
@@ -96,6 +98,8 @@ export const delBtn = styled.button`
     color: red;
   }
 `;
+
+export const LikeBtn = styled.button``;
 
 export const Commentbox = styled.div`
   width: 100%;
@@ -133,6 +137,6 @@ export const SubButton = styled.button`
   }
 `;
 
-export const Items = styled.div`
+export const CommentItems = styled.div`
   width: 100%;
 `;
