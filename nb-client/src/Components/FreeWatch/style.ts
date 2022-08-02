@@ -64,12 +64,17 @@ export const Infobox = styled.div`
 `;
 
 export const items = styled.div`
+  height: 50px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
 `;
 
 export const BtnWrapper = styled.button`
   display: flex;
-  margin-bottom: -20px;
+  align-items: center;
+  /* margin-bottom: -20px; */
 `;
 export const chgBtn = styled.button`
   width: 60px;

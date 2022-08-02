@@ -111,6 +111,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
             <p>{freeWatch.context}</p>
           </S.Infobox>
           <S.items>
+            <span>{freeWatch.create_date}</span>
             <S.BtnWrapper>
               {getUserId === freeWatch.create_user ? (
                 <>
