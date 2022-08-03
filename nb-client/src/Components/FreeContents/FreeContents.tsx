@@ -7,7 +7,6 @@ const FreeContents = () => {
   const [blog, setBlog] = useState([]);
 
   useEffect(() => {
-    // const url = "https://jsonplaceholder.typicode.com/posts";
     contentFree()
       .then((res: any) => {
         console.log(res.data);
