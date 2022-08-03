@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import { contentStory } from "../../Api/Story";
+import { dateFillter } from "../../Utils/Libs/dateFillter";
 const StoryContents = () => {
   const [stroy, setStory] = useState([]);
 
@@ -31,7 +32,7 @@ const StoryContents = () => {
                 <p>{item.title}</p>
                 <p>{item.context}</p>
                 <p>{item.create_user}</p>
-                <p>{item.create_date}</p>
+                <p>{dateFillter(item.create_date)}</p>
               </S.infobox>
             </S.blogitem>
           ))}
