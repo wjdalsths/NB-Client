@@ -4,6 +4,7 @@ import { FreeCommentType } from "../../types";
 import getUserId from "../../Utils/Libs/getUserId";
 import { changeCommentFree, deleteCommentFree } from "../../Api/Free";
 import { toast } from "react-toastify";
+import dateFillter from "../../Utils/Libs/dateFillter";
 
 const FreeCommentItem: React.FC<FreeCommentType> = ({
   id,
@@ -57,7 +58,7 @@ const FreeCommentItem: React.FC<FreeCommentType> = ({
       <S.CommentItem>
         <S.CreateInformation>
           <S.CreateUser>{create_id_user_fr}</S.CreateUser>
-          <S.CreateDate>{create_date}</S.CreateDate>
+          <S.CreateDate>{dateFillter(create_date)}</S.CreateDate>
         </S.CreateInformation>
         <S.CommentContent>
           {chgCommentState ? (

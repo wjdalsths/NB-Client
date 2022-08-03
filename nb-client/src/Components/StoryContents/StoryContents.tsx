@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import { contentStory } from "../../Api/Story";
-import { dateFillter } from "../../Utils/Libs/dateFillter";
+import dateFillter from "../../Utils/Libs/dateFillter";
 const StoryContents = () => {
   const [stroy, setStory] = useState([]);
 

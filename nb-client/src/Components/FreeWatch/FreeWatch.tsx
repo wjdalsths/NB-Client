@@ -11,8 +11,9 @@ import {
 } from "../../Api/Free";
 import FreeCommentItem from "../FreeCommentItem/FreeCommentItem";
 import { toast } from "react-toastify";
-import getUserId from "../../Utils/Libs/getUserId";
 import { useNavigate } from "react-router-dom";
+import getUserId from "../../Utils/Libs/getUserId";
+import dateFillter from "../../Utils/Libs/dateFillter";
 
 interface FreeTypeProps {
   freeWatch: FreeType;
@@ -111,7 +112,11 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
             <p>{freeWatch.context}</p>
           </S.Infobox>
           <S.items>
-            <span>{freeWatch.create_date}</span>
+            <span>
+              <p>게시날짜 : {dateFillter(freeWatch.create_date)}</p>
+              <p>수정날짜 : {dateFillter(freeWatch.correction_date)}</p>
+            </span>
+
             <S.BtnWrapper>
               {getUserId === freeWatch.create_user ? (
                 <>
