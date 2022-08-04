@@ -9,6 +9,27 @@ export const contentStory = async () => {
   }
 };
 
+export const writeStory = async (
+  title: string,
+  content: string,
+  id: number
+) => {
+  try {
+    const { data } = await customAxios.post(
+      "/SBN/CRE/",
+      {
+        title: title,
+        context: content,
+        create_user: id,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    return { data };
+  } catch (e: any) {}
+};
+
 export const getWatchStory = async (id: string | undefined) => {
   try {
     const { data } = await customAxios.get(`/SBN/${id}`);
