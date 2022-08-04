@@ -42,6 +42,7 @@ export const items = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `;
 export const blogitem = styled.div`
   width: 100%;

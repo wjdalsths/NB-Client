@@ -9,6 +9,7 @@ import QuestionWritePage from "./WritePage/QuestionWritePage";
 import StoryWritePage from "./WritePage/StoryWritePage";
 
 import FreeWatchPage from "./WatchPage/FreeWatchPage";
+import StoryWatchPage from "./WatchPage/StoryWatchPage";
 export {
   FreePage,
   FreeWritePage,
@@ -19,4 +20,5 @@ export {
   StoryPage,
   StoryWritePage,
   FreeWatchPage,
+  StoryWatchPage,
 };
