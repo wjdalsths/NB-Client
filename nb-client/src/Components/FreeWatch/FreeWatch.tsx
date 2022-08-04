@@ -6,8 +6,8 @@ import {
   deleteFree,
   getCommentFree,
   writeCommentFree,
-  getLike,
-  upLike,
+  getLikeFree,
+  upLikeFree,
 } from "../../Api/Free";
 import FreeCommentItem from "../FreeCommentItem/FreeCommentItem";
 import { toast } from "react-toastify";
@@ -68,7 +68,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   };
 
   const getLikeCnt = () => {
-    getLike(freeWatch.id)
+    getLikeFree(freeWatch.id)
       .then((res: any) => {
         setLike(res.data);
       })
@@ -78,7 +78,7 @@ const FreeWatch = ({ freeWatch }: FreeTypeProps) => {
   };
 
   const onLike = () => {
-    upLike(getUserId, freeWatch.id)
+    upLikeFree(getUserId, freeWatch.id)
       .then(() => getLikeCnt())
       .catch((error: any) => {
         console.log(error.message);
