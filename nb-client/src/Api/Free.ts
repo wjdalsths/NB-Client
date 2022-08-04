@@ -137,7 +137,7 @@ export const deleteCommentFree = async (id: number) => {
   }
 };
 
-export const getLike = async (id: number) => {
+export const getLikeFree = async (id: number) => {
   try {
     const { data } = await customAxios.get(`/suggest_fr/${id}`);
     return { data };
@@ -146,7 +146,7 @@ export const getLike = async (id: number) => {
   }
 };
 
-export const upLike = async (userId: number, id: number) => {
+export const upLikeFree = async (userId: number, id: number) => {
   try {
     const { data } = await customAxios.post(`/suggest_fr/`, {
       user: userId,
