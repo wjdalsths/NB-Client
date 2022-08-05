@@ -39,6 +39,58 @@ export const getWatchStory = async (id: string | undefined) => {
   }
 };
 
+export const getCommentStory = async (id: number) => {
+  try {
+    const { data } = await customAxios.get(`/CST/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
+export const writeCommentStory = async (
+  comment: string,
+  userId: number | null,
+  contentId: number
+) => {
+  try {
+    const { data } = await customAxios.post(`/CST/`, {
+      context: comment,
+      create_id_user_st: userId,
+      comment_Story: contentId,
+    });
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
+export const changeCommentStory = async (
+  id: number,
+  comment: string,
+  userId: number | null,
+  contentId: number
+) => {
+  try {
+    const { data } = await customAxios.put(`/CST/DE/${id}`, {
+      context: comment,
+      create_id_user_st: userId,
+      comment_Story: contentId,
+    });
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
+export const deleteCommentStory = async (id: number) => {
+  try {
+    await customAxios.delete(`/CST/DE/${id}`);
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
 export const getLikeStory = async (id: number) => {
   try {
     const { data } = await customAxios.get(`/suggest_st/${id}`);
