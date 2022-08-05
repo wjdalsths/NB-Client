@@ -39,6 +39,30 @@ export const getWatchStory = async (id: string | undefined) => {
   }
 };
 
+export const changeStory = async (
+  id: number | undefined,
+  userId: number,
+  title: string,
+  content: string
+) => {
+  try {
+    const { data } = await customAxios.put(
+      `/SBN/${id}`,
+      {
+        title: title,
+        context: content,
+        create_user: userId,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
 export const deleteStory = async (id: number) => {
   try {
     await customAxios.delete(`/SBN/${id}`);
