@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import Header from "../../Components/Header/Header";
 import SideBar from "../../Components/SideBar/SideBar";
-import StoryWrite from "../../Components/StroyWrite/StoryWrite";
+import StoryWrite from "../../Components/StoryWrite/StoryWrite";
 
 const StoryWritePage = () => {
   return (

@@ -35,7 +35,7 @@ const StoryContents = () => {
               onClick={() => navigate(`/story/${item.id}`)}
             >
               <S.infobox>
-                <p>{item.title}</p>
+                <p>{item.id}</p>
                 <p>{item.context}</p>
                 <p>{item.create_user}</p>
                 <p>{dateFillter(item.create_date)}</p>

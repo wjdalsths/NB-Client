@@ -1,54 +1,39 @@
 import { useState } from "react";
 import * as S from "./style";
-import { customAxios } from "../../Utils/Libs/customAxios";
 import { toast } from "react-toastify";
-
-// const [info, setInfo] = useState<string>("");
+import { writeStory } from "../../Api/Story";
+import getUserId from "../../Utils/Libs/getUserId";
+import { useNavigate } from "react-router-dom";
 
 const StoryWrite = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   const onChangeTitle = (e: any) => {
     setTitle(e.target.value);
-    // console.log(e.target.value);
   };
   const onChangeContent = (e: any) => {
     setContent(e.target.value);
-    // console.log(e.target.value);
   };
 
   const onSubmit = () => {
     let pattern = /^\s\s*$/;
     if (title.match(pattern) || title === "") {
-      console.log("no title");
-      alert("제목을 입력해주세요.");
+      toast.warn("제목을 입력해주세요.");
     } else if (content.match(pattern) || content === "") {
-      console.log("no content");
-      alert("내용을 입력해주세요.");
+      toast.warn("내용을 입력해주세요.");
     } else {
-      customAxios
-        .post(
-          "/SBN/CRE/",
-          {
-            title: title,
-            context: content,
-            create_user: 1,
-          },
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          console.log("성공");
+      writeStory(title, content, getUserId)
+        .then(() => {
           toast.success("게시되었습니다.");
           setTitle("");
           setContent("");
-          window.location.replace("/story");
+          // navigate("/story");
+          console.log(getUserId);
         })
-        .catch((error: any) => {
-          console.log(error);
+        .catch((e: any) => {
+          console.log(e.message);
         });
     }
   };

@@ -73,11 +73,9 @@ const FreeWrite = ({ freeWatch }: FreeTypeProps) => {
   const onChange = () => {
     let pattern = /^\s\s*$/;
     if (title.match(pattern) || title === "") {
-      console.log("no title");
-      alert("제목을 입력해주세요.");
+      toast.warn("제목을 입력해주세요.");
     } else if (content.match(pattern) || content === "") {
-      console.log("no content");
-      alert("내용을 입력해주세요.");
+      toast.warn("내용을 입력해주세요.");
     } else {
       changeFree(freeWatch?.id, getUserId, title, content, imgBase64)
         .then((res) => {
