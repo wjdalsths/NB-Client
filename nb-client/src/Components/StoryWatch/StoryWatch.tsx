@@ -7,11 +7,13 @@ import {
   getLikeStory,
   upLikeStory,
   writeCommentStory,
+  deleteStory,
 } from "../../Api/Story";
 import StoryCommentItem from "../StoryCommentItem/StoryCommentItem";
 import getUserId from "../../Utils/Libs/getUserId";
 import dateFillter from "../../Utils/Libs/dateFillter";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 interface StoryTypeProps {
   storyWatch: StoryType;
@@ -22,6 +24,7 @@ const StoryWatch = ({ storyWatch }: StoryTypeProps) => {
   const [addComment, setAddComment] = useState("");
   const [cntLike, setLike] = useState(0);
   const [temp, setTemp] = useState(true);
+  const navigate = useNavigate();
 
   const chgTemp = (value: boolean) => {
     setTemp(value);
@@ -49,6 +52,20 @@ const StoryWatch = ({ storyWatch }: StoryTypeProps) => {
         });
     }
   };
+
+  const delStory = (e: any) => {
+    e.preventDefault();
+
+    deleteStory(storyWatch.id)
+      .then(() => {
+        toast.success("삭제되었습니다.");
+        navigate("/story");
+      })
+      .catch((error: any) => {
+        console.log(error.message);
+      });
+  };
+
   const getLikeCnt = () => {
     getLikeStory(storyWatch.id)
       .then((res: any) => {
@@ -78,6 +95,7 @@ const StoryWatch = ({ storyWatch }: StoryTypeProps) => {
       });
     getLikeCnt();
   }, [temp]);
+
   return (
     <>
       <S.Positioner>
@@ -99,7 +117,13 @@ const StoryWatch = ({ storyWatch }: StoryTypeProps) => {
               {getUserId === storyWatch.create_user ? (
                 <>
                   <S.chgBtn onClick={() => {}}>수정</S.chgBtn>
-                  <S.delBtn onClick={(e: any) => {}}>삭제</S.delBtn>
+                  <S.delBtn
+                    onClick={(e: any) => {
+                      delStory(e);
+                    }}
+                  >
+                    삭제
+                  </S.delBtn>
                 </>
               ) : (
                 <p></p>
