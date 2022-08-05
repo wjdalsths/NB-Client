@@ -29,8 +29,7 @@ const StoryWrite = () => {
           toast.success("게시되었습니다.");
           setTitle("");
           setContent("");
-          // navigate("/story");
-          console.log(getUserId);
+          navigate("/story");
         })
         .catch((e: any) => {
           console.log(e.message);
