@@ -37,6 +37,7 @@ const Router = () => {
       <Route path="/freeWrite" element={<FreeWritePage />} />
       <Route path="/freeWrite/:id" element={<FreeWritePage />} />
       <Route path="/storyWrite" element={<StoryWritePage />} />
+      <Route path="/storyWrite/:id" element={<StoryWritePage />} />
       <Route path="/questionWrite" element={<QuestionWritePage />} />
       <Route path="/free/:id" element={<FreeWatchPage />} />
       <Route path="/story/:id" element={<StoryWatchPage />} />

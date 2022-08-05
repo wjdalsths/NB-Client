@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./style";
 import { toast } from "react-toastify";
-import { writeStory } from "../../Api/Story";
+import { changeStory, writeStory } from "../../Api/Story";
 import getUserId from "../../Utils/Libs/getUserId";
 import { useNavigate } from "react-router-dom";
+import { StoryType } from "../../types";
 
-const StoryWrite = () => {
+interface StoryTypeProps {
+  storyWatch: StoryType | null;
+}
+const StoryWrite = ({ storyWatch }: StoryTypeProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
@@ -37,6 +41,36 @@ const StoryWrite = () => {
     }
   };
 
+  const onChange = () => {
+    let pattern = /^\s\s*$/;
+    if (title.match(pattern) || title === "") {
+      toast.warn("제목을 입력해주세요.");
+    } else if (content.match(pattern) || content === "") {
+      toast.warn("내용을 입력해주세요.");
+    } else {
+      changeStory(storyWatch?.id, getUserId, title, content)
+        .then(() => {
+          toast.success("수정되었습니다.");
+          setTitle("");
+          setContent("");
+          navigate("/story");
+        })
+        .catch((e: any) => {
+          console.log(e.message);
+        });
+    }
+  };
+
+  useEffect(() => {
+    async function setProps() {
+      if (storyWatch) {
+        setTitle(storyWatch.title);
+        setContent(storyWatch.context);
+      }
+    }
+    setProps();
+  }, [storyWatch]);
+
   return (
     <>
       <S.Positioner>
@@ -57,9 +91,16 @@ const StoryWrite = () => {
             />
           </S.Infobox>
         </S.Board>
-        <S.SubButton type="submit" onClick={onSubmit}>
-          UpLoad
-        </S.SubButton>
+
+        {storyWatch ? (
+          <S.SubButton type="submit" onClick={onChange}>
+            수정
+          </S.SubButton>
+        ) : (
+          <S.SubButton type="submit" onClick={onSubmit}>
+            UpLoad
+          </S.SubButton>
+        )}
       </S.Positioner>
     </>
   );

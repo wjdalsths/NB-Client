@@ -116,7 +116,13 @@ const StoryWatch = ({ storyWatch }: StoryTypeProps) => {
             <S.BtnWrapper>
               {getUserId === storyWatch.create_user ? (
                 <>
-                  <S.chgBtn onClick={() => {}}>수정</S.chgBtn>
+                  <S.chgBtn
+                    onClick={() => {
+                      navigate(`/storyWrite/${storyWatch.id}`);
+                    }}
+                  >
+                    수정
+                  </S.chgBtn>
                   <S.delBtn
                     onClick={(e: any) => {
                       delStory(e);
