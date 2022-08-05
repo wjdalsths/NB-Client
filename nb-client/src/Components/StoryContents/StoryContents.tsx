@@ -36,7 +36,7 @@ const StoryContents = () => {
             >
               <S.infobox>
                 <p>{item.id}</p>
-                <p>{item.context}</p>
+                <p>{item.title}</p>
                 <p>{item.create_user}</p>
                 <p>{dateFillter(item.create_date)}</p>
               </S.infobox>
