@@ -42,6 +42,18 @@ export const items = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  span {
+    width: 100%;
+    height: 3rem;
+    background: #ffffff;
+    border-bottom: 2px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.25rem;
+    padding-left: 10px;
+  }
 `;
 export const blogitem = styled.div`
   width: 100%;

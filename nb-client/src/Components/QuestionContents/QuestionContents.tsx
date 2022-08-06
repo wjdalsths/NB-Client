@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import dateFillter from "../../Utils/Libs/dateFillter";
 
 const QuestionContents = () => {
-  const [stroy, setStory] = useState([]);
+  const [Question, setQuestion] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     contentQuestion()
       .then((res: any) => {
-        console.log(res);
-        setStory(res.data);
+        console.log(res.data);
+        setQuestion(res.data);
       })
       .catch((e: any) => {
         console.log(e.message);
@@ -29,19 +29,23 @@ const QuestionContents = () => {
           <p>DAY</p>
         </S.ListType>
         <S.items>
-          {stroy.map((item: any) => (
-            <S.blogitem
-              key={item.id}
-              onClick={() => navigate(`/question/${item.id}`)}
-            >
-              <S.infobox>
-                <p>{item.id}</p>
-                <p>{item.title}</p>
-                <p>{item.create_user_id}</p>
-                <p>{dateFillter(item.create_date)}</p>
-              </S.infobox>
-            </S.blogitem>
-          ))}
+          {Question.length !== 0 ? (
+            Question.map((item: any) => (
+              <S.blogitem
+                key={item.id}
+                onClick={() => navigate(`/question/${item.id}`)}
+              >
+                <S.infobox>
+                  <p>{item.id}</p>
+                  <p>{item.title}</p>
+                  <p>{item.create_user_id}</p>
+                  <p>{dateFillter(item.create_date)}</p>
+                </S.infobox>
+              </S.blogitem>
+            ))
+          ) : (
+            <span>게시물이 없습니다.</span>
+          )}
         </S.items>
       </S.Positioner>
     </>
