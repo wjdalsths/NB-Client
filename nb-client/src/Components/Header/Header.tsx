@@ -16,7 +16,7 @@ const Header = (page: any) => {
           <S.DocumentList>
             {isLogin() ? (
               <>
-                <S.WriteWrapper onClick={() => navigate("/")}>
+                <S.WriteWrapper onClick={() => navigate("/mycontent")}>
                   <SVG.Documentlist />
                   <p>글목록</p>
                 </S.WriteWrapper>

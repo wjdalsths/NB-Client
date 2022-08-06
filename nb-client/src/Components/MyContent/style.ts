@@ -2,42 +2,52 @@ import styled from "styled-components";
 
 export const Positioner = styled.div`
   width: 100%;
-  margin: 0 3vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 `;
 
-export const ListType = styled.div`
+export const ListType = styled.div<chgColor>`
   display: flex;
   width: 100%;
   height: 3.5rem;
   p {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-left: 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   p:first-child {
-    width: 10%;
-    background-color: lightgray;
+    width: 33.3%;
+    background-color: ${(props) =>
+      props.state === "free" ? "#b9a0fe" : "lightgray"};
     border-radius: 10px 0 0 0;
   }
   p:nth-child(2) {
-    width: 70%;
-    background-color: lightgray;
+    width: 33.3%;
+    background-color: ${(props) =>
+      props.state === "story" ? "#b9a0fe" : "lightgray"};
   }
   p:nth-child(3) {
-    width: 10%;
-    background-color: lightgray;
-  }
-  p:nth-child(4) {
-    width: 10%;
-    background-color: lightgray;
+    width: 33.3%;
+    background-color: ${(props) =>
+      props.state === "question" ? "#b9a0fe" : "lightgray"};
     border-radius: 0 10px 0 0;
   }
 `;
+type chgColor = { state: string };
 
-export const items = styled.div`
+export const freeItems = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* justify-content: center; */
+`;
+
+export const SnQItems = styled.div`
   width: 100%;
   justify-content: center;
   display: flex;
@@ -55,6 +65,7 @@ export const items = styled.div`
     padding-left: 10px;
   }
 `;
+
 export const blogitem = styled.div`
   width: 100%;
   height: 3rem;

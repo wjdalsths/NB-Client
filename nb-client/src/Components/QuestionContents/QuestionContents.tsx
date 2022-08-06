@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import dateFillter from "../../Utils/Libs/dateFillter";
 
 const QuestionContents = () => {
-  const [Question, setQuestion] = useState([]);
+  const [question, setQuestion] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,8 +29,8 @@ const QuestionContents = () => {
           <p>DAY</p>
         </S.ListType>
         <S.items>
-          {Question.length !== 0 ? (
-            Question.map((item: any) => (
+          {question.length !== 0 ? (
+            question.map((item: any) => (
               <S.blogitem
                 key={item.id}
                 onClick={() => navigate(`/question/${item.id}`)}

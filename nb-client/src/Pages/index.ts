@@ -3,6 +3,7 @@ import FreePage from "./MainPage/FreePage";
 import StoryPage from "./MainPage/StoryPage";
 import NoticePage from "./MainPage/NoticePage";
 import QuestionPage from "./MainPage/QuestionPage";
+import MyContentPage from "./MainPage/MyContentPage";
 
 import FreeWritePage from "./WritePage/FreeWritePage";
 import QuestionWritePage from "./WritePage/QuestionWritePage";
@@ -25,4 +26,5 @@ export {
   StoryWatchPage,
   QuestionWatchPage,
   NoticeWatchPage,
+  MyContentPage,
 };
