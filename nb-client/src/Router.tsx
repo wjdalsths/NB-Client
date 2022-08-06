@@ -25,6 +25,7 @@ import {
   FreeWatchPage,
   StoryWatchPage,
   QuestionWatchPage,
+  NoticeWatchPage,
 } from "./Pages";
 
 const Router = () => {
@@ -44,6 +45,7 @@ const Router = () => {
       <Route path="/free/:id" element={<FreeWatchPage />} />
       <Route path="/story/:id" element={<StoryWatchPage />} />
       <Route path="/question/:id" element={<QuestionWatchPage />} />
+      <Route path="/notice/:id" element={<NoticeWatchPage />} />
     </Routes>
   );
 };

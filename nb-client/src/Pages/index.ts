@@ -11,6 +11,7 @@ import StoryWritePage from "./WritePage/StoryWritePage";
 import FreeWatchPage from "./WatchPage/FreeWatchPage";
 import StoryWatchPage from "./WatchPage/StoryWatchPage";
 import QuestionWatchPage from "./WatchPage/QuestionWatchPage";
+import NoticeWatchPage from "./WatchPage/NoticeWatchPage";
 export {
   FreePage,
   FreeWritePage,
@@ -23,4 +24,5 @@ export {
   FreeWatchPage,
   StoryWatchPage,
   QuestionWatchPage,
+  NoticeWatchPage,
 };
