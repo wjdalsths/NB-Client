@@ -24,6 +24,7 @@ import {
   StoryWritePage,
   FreeWatchPage,
   StoryWatchPage,
+  QuestionWatchPage,
 } from "./Pages";
 
 const Router = () => {
@@ -39,8 +40,10 @@ const Router = () => {
       <Route path="/storyWrite" element={<StoryWritePage />} />
       <Route path="/storyWrite/:id" element={<StoryWritePage />} />
       <Route path="/questionWrite" element={<QuestionWritePage />} />
+      <Route path="/questionWrite/:id" element={<QuestionWritePage />} />
       <Route path="/free/:id" element={<FreeWatchPage />} />
       <Route path="/story/:id" element={<StoryWatchPage />} />
+      <Route path="/question/:id" element={<QuestionWatchPage />} />
     </Routes>
   );
 };

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import Header from "../../Components/Header/Header";
-import SideBar from "../../Components/SideBar/SideBar";
-import QuestionWrite from "../../Components/QuestionWrite/QuestionWrite";
-import { QuestionType } from "../../types";
 import { useParams } from "react-router-dom";
+import Header from "../../Components/Header/Header";
+import QuestionWatch from "../../Components/QuestionWatch/QuestionWatch";
+import SideBar from "../../Components/SideBar/SideBar";
+import { QuestionType } from "../../types";
 import { getWatchQuestion } from "../../Api/Question";
 
-const QuestionWritePage = () => {
+const QuestionWatchPage: React.FC = () => {
   const param = useParams();
   const [questionWatch, setQuestionWatch] = useState<QuestionType>();
+
   useEffect(() => {
     async function ReturnWatchFree() {
       getWatchQuestion(param.id).then((res) => {
@@ -25,9 +26,9 @@ const QuestionWritePage = () => {
         <Header />
         <S.Container>
           {questionWatch ? (
-            <QuestionWrite questionWatch={questionWatch} />
+            <QuestionWatch questionWatch={questionWatch} />
           ) : (
-            <QuestionWrite questionWatch={null} />
+            <div>로딩중</div>
           )}
           <SideBar />
         </S.Container>
@@ -36,4 +37,4 @@ const QuestionWritePage = () => {
   );
 };
 
-export default QuestionWritePage;
+export default QuestionWatchPage;

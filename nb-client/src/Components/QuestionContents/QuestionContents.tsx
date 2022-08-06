@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
-import { customAxios } from "../../Utils/Libs/customAxios";
+import { contentQuestion } from "../../Api/Question";
+import { useNavigate } from "react-router-dom";
+import dateFillter from "../../Utils/Libs/dateFillter";
 
 const QuestionContents = () => {
   const [stroy, setStory] = useState([]);
-
-  //   compoentDidMount(){}
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const url = "https://jsonplaceholder.typicode.com/posts";
-    customAxios
-      .get(url)
+    contentQuestion()
       .then((res: any) => {
         console.log(res);
         setStory(res.data);
       })
-      .catch((error: any) => {
-        console.log(error);
+      .catch((e: any) => {
+        console.log(e.message);
       });
   }, []);
 
@@ -30,17 +29,16 @@ const QuestionContents = () => {
           <p>DAY</p>
         </S.ListType>
         <S.items>
-          {stroy.map((user: any) => (
-            <S.blogitem key={user.id}>
+          {stroy.map((item: any) => (
+            <S.blogitem
+              key={item.id}
+              onClick={() => navigate(`/question/${item.id}`)}
+            >
               <S.infobox>
-                {/* {user.id} */}
-                <p>1234</p>
-                {/* <S.title>{user.title}</S.title> */}
-                <p>titletitletitletitletitlttitletitleteitleteitlt</p>
-                {/* {user.username} */}
-                <p>username</p>
-                {/* {user.date} */}
-                <p>2022/12/12</p>
+                <p>{item.id}</p>
+                <p>{item.title}</p>
+                <p>{item.create_user_id}</p>
+                <p>{dateFillter(item.create_date)}</p>
               </S.infobox>
             </S.blogitem>
           ))}
