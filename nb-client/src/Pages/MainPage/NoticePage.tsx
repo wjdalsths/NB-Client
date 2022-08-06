@@ -5,10 +5,12 @@ import SideBar from "../../Components/SideBar/SideBar";
 import NoticeContents from "../../Components/NoticeContents/NoticeContents";
 
 const NoticePage = () => {
+  const page = "notice";
+
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           <NoticeContents />
           <SideBar />

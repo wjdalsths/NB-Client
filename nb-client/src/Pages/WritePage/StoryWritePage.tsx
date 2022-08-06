@@ -10,6 +10,8 @@ import { getWatchStory } from "../../Api/Story";
 const StoryWritePage = () => {
   const param = useParams();
   const [storyWatch, setStoryWatch] = useState<StoryType>();
+  const page = "story";
+
   useEffect(() => {
     async function ReturnWatchFree() {
       getWatchStory(param.id).then((res) => {
@@ -22,7 +24,7 @@ const StoryWritePage = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {storyWatch ? (
             <StoryWrite storyWatch={storyWatch} />

@@ -10,6 +10,7 @@ import { getWatchFree } from "../../Api/Free";
 const FreeWatchPage: React.FC = () => {
   const param = useParams();
   const [freeWatch, setFreeWatch] = useState<FreeType>();
+  const page = "free";
 
   useEffect(() => {
     async function ReturnWatchFree() {
@@ -23,7 +24,7 @@ const FreeWatchPage: React.FC = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {freeWatch ? <FreeWatch freeWatch={freeWatch} /> : <div>로딩중</div>}
           <SideBar />

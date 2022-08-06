@@ -5,10 +5,12 @@ import SideBar from "../../Components/SideBar/SideBar";
 import StoryContents from "../../Components/StoryContents/StoryContents";
 
 const StoryPage = () => {
+  const page = "story";
+
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           <StoryContents />
           <SideBar />

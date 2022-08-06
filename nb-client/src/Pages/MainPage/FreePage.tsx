@@ -5,10 +5,12 @@ import SideBar from "../../Components/SideBar/SideBar";
 import FreeContents from "../../Components/FreeContents/FreeContents";
 
 const FreePage = () => {
+  const page = "free";
+
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           <FreeContents />
           <SideBar />

@@ -10,6 +10,7 @@ import { getWatchStory } from "../../Api/Story";
 const StortWatchPage: React.FC = () => {
   const param = useParams();
   const [storyWatch, setStoryWatch] = useState<StoryType>();
+  const page = "story";
 
   useEffect(() => {
     async function ReturnWatchFree() {
@@ -23,7 +24,7 @@ const StortWatchPage: React.FC = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {storyWatch ? (
             <StoryWatch storyWatch={storyWatch} />

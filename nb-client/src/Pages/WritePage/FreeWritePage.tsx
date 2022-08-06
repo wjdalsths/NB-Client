@@ -10,6 +10,8 @@ import { getWatchFree } from "../../Api/Free";
 const FreeWritePage = () => {
   const param = useParams();
   const [freeWatch, setFreeWatch] = useState<FreeType>();
+  const page = "free";
+
   useEffect(() => {
     async function ReturnWatchFree() {
       getWatchFree(param.id).then((res) => {
@@ -22,7 +24,7 @@ const FreeWritePage = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {freeWatch ? (
             <FreeWrite freeWatch={freeWatch} />

@@ -10,6 +10,8 @@ import { getWatchQuestion } from "../../Api/Question";
 const QuestionWritePage = () => {
   const param = useParams();
   const [questionWatch, setQuestionWatch] = useState<QuestionType>();
+  const page = "question";
+
   useEffect(() => {
     async function ReturnWatchFree() {
       getWatchQuestion(param.id).then((res) => {
@@ -22,7 +24,7 @@ const QuestionWritePage = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {questionWatch ? (
             <QuestionWrite questionWatch={questionWatch} />

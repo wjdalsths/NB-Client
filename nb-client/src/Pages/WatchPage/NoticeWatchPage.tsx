@@ -10,6 +10,7 @@ import { NoticeType } from "../../types";
 const NoticeWatchPage: React.FC = () => {
   const param = useParams();
   const [noticeWatch, setNoticeWatch] = useState<NoticeType>();
+  const page = "notice";
 
   useEffect(() => {
     async function ReturnWatchNotice() {
@@ -23,7 +24,7 @@ const NoticeWatchPage: React.FC = () => {
   return (
     <>
       <S.Wrapper>
-        <Header />
+        <Header page={page} />
         <S.Container>
           {noticeWatch ? (
             <NoticeWatch noticeWatch={noticeWatch} />
