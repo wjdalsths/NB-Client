@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import * as S from "./style";
+import { signup } from "../../Api/user";
+import { toast } from "react-toastify";
+
 const SignUpContent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,21 +23,13 @@ const SignUpContent = () => {
     if (password !== checkPassword) {
       return alert("비밀번호와 비밀번호확인은 같아야 합니다.");
     } else {
-      axios({
-        method: "post",
-        url: "/User/",
-        data: {
-          name: name,
-          email: email,
-          password: password,
-        },
-      })
+      signup(name, email, password)
         .then((res) => {
           console.log(res);
-          console.log("성공");
+          toast.success("회원가입되었습니다.");
         })
         .catch((e) => {
-          console.log(e);
+          console.log(e.message);
         });
     }
   };
