@@ -23,9 +23,27 @@ export const signup = async (name: string, email: string, password: string) => {
   }
 };
 
-export const getUser = async (id: string | null) => {
+export const getUser = async (id: number) => {
   try {
     const { data } = await customAxios.get(`/User/${id}`);
+    return { data };
+  } catch (e: any) {
+    console.log(e.message);
+  }
+};
+
+export const userInfoChange = async (
+  id: number,
+  name: string,
+  email: string,
+  password: string
+) => {
+  try {
+    const { data } = await customAxios.put(`/User/${id}`, {
+      name: name,
+      email: email,
+      passwored: password,
+    });
     return { data };
   } catch (e: any) {
     console.log(e.message);
