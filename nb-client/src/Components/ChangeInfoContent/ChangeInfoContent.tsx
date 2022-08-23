@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { customAxios } from "../../Utils/Libs/customAxios";
 import { toast } from "react-toastify";
+import { getUser, userInfoChange } from "../../Api/user";
+import getUserId from "../../Utils/Libs/getUserId";
 
 const ChangeInfoContent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [checkEmail, setCheckEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   //   const [showPassword, setShowPassword] = useState(false);
   //   const [showHide, setShowHide] = useState("show");
+  const onLogout = () => {
+    localStorage.removeItem("Blog_accessToken");
+    localStorage.removeItem("Blog_refreshToken");
+    localStorage.removeItem("id");
+
+    toast.info("로그아웃 되었어요");
+    window.location.replace("/");
+  };
 
   const onRevise = (e: any) => {
     e.preventDefault();
@@ -20,24 +30,16 @@ const ChangeInfoContent = () => {
       toast.error("email를 입력해주세요.");
     } else if (checkPassword.match(pattern) || checkPassword === "") {
       toast.error("비밀번호 확인을 입력해주세요.");
-    } else if (email !== "자신의 이메일") {
+    } else if (email !== checkEmail) {
       toast.error("email이 다릅니다.");
     } else if (password !== checkPassword) {
       toast.error("비밀번호가 다릅니다.");
     } else {
-      customAxios({
-        method: "post",
-        url: "/User/id",
-        data: {
-          name: name,
-          email: email,
-          password: password,
-        },
-      })
+      userInfoChange(getUserId, name, email, password)
         .then((res: any) => {
           console.log(res);
-          console.log("성공");
           toast.success("수정 완료되었습니다.");
+          onLogout();
         })
         .catch((e: any) => {
           console.log(e);
@@ -45,12 +47,19 @@ const ChangeInfoContent = () => {
     }
   };
 
+  useEffect(() => {
+    getUser(getUserId).then((res: any) => {
+      // console.log(res.data.email);
+      setCheckEmail(res.data.email);
+    });
+  }, []);
+
   return (
     <>
       <S.Positioner>
         <S.InputWrapper>
           <S.input
-            placeholder="수정할 이름"
+            placeholder="현재 이름"
             type="text"
             onChange={(e) => setName(e.target.value)}
             maxLength={16}
