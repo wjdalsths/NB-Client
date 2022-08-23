@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import * as S from "./style";
 import { signup } from "../../Api/user";
 import { toast } from "react-toastify";

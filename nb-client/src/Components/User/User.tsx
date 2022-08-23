@@ -7,11 +7,11 @@ import ChangeInfoModal from "../ChangeInfoModal/ChangeInfoModal";
 import { useRecoilState } from "recoil";
 import { userList } from "../../atoms";
 import { getUser } from "../../Api/user";
+import getUserId from "../../Utils/Libs/getUserId";
 const User = () => {
   const [name, setName] = useState("");
   const [modal, setmodal] = useState(false);
   const [list, setList] = useRecoilState(userList);
-  const id = localStorage.getItem("id");
 
   console.log(list);
 
@@ -19,7 +19,7 @@ const User = () => {
     setmodal(false);
   };
   useEffect(() => {
-    getUser(id).then((res) => {
+    getUser(getUserId).then((res) => {
       console.log(res?.data);
       setName(res?.data.name);
       // setList({
@@ -46,7 +46,7 @@ const User = () => {
             <SVG.User />
           </S.ProfileImg>
           <S.UserContents>
-            {id}
+            {getUserId}
             <br />
             {name}
           </S.UserContents>
